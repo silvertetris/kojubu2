@@ -25,10 +25,10 @@ public class Kojububot {
             GatewayIntent.MESSAGE_CONTENT};
 
     public Kojububot() throws LoginException {
-        String token = "OTczOTMwOTA5OTY1MzczNDQy.GrCblw.qfEMOvjPGT3O3B71_4vEzkm18NW1BMIMy776TY";
+        String token = "OTczOTMwOTA5OTY1MzczNDQy.GdXaYS.kf7e8JnKTRsAEoUvLUipQvn-3ULGF1TCfZQclE";
         DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(token);
-        builder.setActivity(Activity.listening("Kendrick"));
-        builder.setStatus(OnlineStatus.IDLE);
+        builder.setActivity(Activity.listening("Hi there!"));
+        builder.setStatus(OnlineStatus.ONLINE);
         builder.addEventListeners(new EventListener(), new KojubuCommands(), new slashcommandinfo());
         builder.enableIntents(Arrays.asList(INTENTS));
         builder.enableCache(CacheFlag.VOICE_STATE, CacheFlag.EMOJI, CacheFlag.ROLE_TAGS, CacheFlag.STICKER, CacheFlag.ACTIVITY);

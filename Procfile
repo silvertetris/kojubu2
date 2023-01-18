@@ -1,1 +1,1 @@
-web: java -cp target/classes/:target/dependency/* com.kojubu.bot.Kojububot
+web: java -cp target/classes/;target/dependency/* com.kojubu.bot.Kojububot

@@ -1,1 +1,1 @@
-web: java -cp kojubu123/target/classes:target/dependency/* com.kojubu.bot.Kojububot
+worker: sh target/bin/worker

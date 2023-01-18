@@ -1,1 +1,1 @@
-web: java -cp target/classes:target/dependency/* com.kojubu.bot.Kojububot
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.kojubu.bot.Kojububot

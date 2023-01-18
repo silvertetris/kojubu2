@@ -1,1 +1,1 @@
-java $JAVA_OPTS -cp target/classes/:target/dependency/* com.kojubu.bot.Kojububot
+worker: java $JAVA_OPTS -cp target/classes/:target/dependency/* com.kojubu.bot.Kojububot

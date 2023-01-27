@@ -36,6 +36,9 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
             event.getChannel().sendMessage("귀여운 기니피그").addContent("\n``적은 횟수: " + k + "번``").queue();
         }
         super.onMessageReceived(event);
+        if(!event.getMessage().isFromGuild()) {
+            return;
+        }
         System.out.println(MemberTag+":"+event.getMessage().getContentDisplay());
     }
 }

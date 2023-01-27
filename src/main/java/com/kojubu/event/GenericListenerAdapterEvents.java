@@ -30,10 +30,10 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        String MemberTag = event.getMember().getUser().getAsTag();
-        String GuildName = event.getGuild().getName();
-        String ChannelName=event.getChannel().getName();
         try{
+            String MemberTag = event.getMember().getUser().getAsTag();
+            String GuildName = event.getGuild().getName();
+            String ChannelName=event.getChannel().getName();
             if (event.getMessage().getContentRaw().equals("이동훈")) {
                 k++;
                 event.getChannel().sendMessage("귀여운 기니피그").addContent("\n``적은 횟수: " + k + "번``").queue();

@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import java.util.List;
 
 public class GenericListenerAdapterEvents extends ListenerAdapter {
+    int k=0;
     @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {//this Guildevents have to get exact channel, not generic
         String MemberMention = event.getUser().getAsMention();
@@ -29,11 +30,12 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        int k = 0;
+        String MemberTag = event.getMember().getUser().getAsTag();
         if (event.getMessage().getContentRaw().equals("이동훈")) {
             k++;
-            event.getChannel().sendMessage("귀여운 기니피그\n").addContent("``적은 횟수: " + k + "번``").queue();
+            event.getChannel().sendMessage("귀여운 기니피그").addContent("\n``적은 횟수: " + k + "번``").queue();
         }
+        super.onMessageReceived(event);
+        System.out.println(MemberTag+":"+event.getMessage().getContentDisplay());
     }
-
 }

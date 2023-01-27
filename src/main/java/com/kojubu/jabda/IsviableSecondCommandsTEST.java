@@ -9,8 +9,9 @@ import java.awt.*;
 public class IsviableSecondCommandsTEST extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
-        EmbedBuilder helpEmbed = new EmbedBuilder().setTitle("코주부v2 안내").setAuthor("made by CAPYBARA", "https://github.com/silvertetris").setColor(Color.pink).
-                setDescription("asdfasdfasdf!!@!#!");
+        EmbedBuilder helpEmbed = new EmbedBuilder().setTitle("코주부v2 안내")
+                .setAuthor("made by CAPYBARA", "https://github.com/silvertetris")
+                .setColor(Color.pink).setDescription("asdfasdfasdf!!@!#!");
         String membertag = event.getUser().getAsTag();
         String command = event.getName();
 

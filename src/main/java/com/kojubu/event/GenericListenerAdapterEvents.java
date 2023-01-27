@@ -31,14 +31,16 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         String MemberTag = event.getMember().getUser().getAsTag();
-        if (event.getMessage().getContentRaw().equals("이동훈")) {
-            k++;
-            event.getChannel().sendMessage("귀여운 기니피그").addContent("\n``적은 횟수: " + k + "번``").queue();
-        }
+        String GuildName = event.getGuild().getName();
+        String ChannelName=event.getChannel().getName();
         super.onMessageReceived(event);
         if(!event.getMessage().isFromGuild()) {
             return;
         }
-        System.out.println(MemberTag+":"+event.getMessage().getContentDisplay());
+        if (event.getMessage().getContentRaw().equals("이동훈")) {
+            k++;
+            event.getChannel().sendMessage("귀여운 기니피그").addContent("\n``적은 횟수: " + k + "번``").queue();
+        }
+        System.out.println(GuildName+":"+ChannelName+"\n"+MemberTag+":"+event.getMessage().getContentDisplay());
     }
 }

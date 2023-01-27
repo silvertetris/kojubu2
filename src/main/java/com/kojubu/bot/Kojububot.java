@@ -2,7 +2,8 @@ package com.kojubu.bot;
 
 import javax.security.auth.login.LoginException;
 
-import com.kojubu.event.EventListener;
+import com.kojubu.event.JoinEvent;
+import com.kojubu.jabda.IsviableSecondCommandsTEST;
 import com.kojubu.jabda.KojubuCommands;
 
 import com.kojubu.jabda.slashcommandinfo;
@@ -29,7 +30,7 @@ public class Kojububot {
         DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(token);
         builder.setActivity(Activity.listening("Hi there!"));
         builder.setStatus(OnlineStatus.ONLINE);
-        builder.addEventListeners(new EventListener(), new KojubuCommands(), new slashcommandinfo());
+        builder.addEventListeners(new JoinEvent(), new KojubuCommands(), new slashcommandinfo(), new IsviableSecondCommandsTEST());
         builder.enableIntents(Arrays.asList(INTENTS));
         builder.enableCache(CacheFlag.VOICE_STATE, CacheFlag.EMOJI, CacheFlag.ROLE_TAGS, CacheFlag.STICKER, CacheFlag.ACTIVITY);
         shardManager = builder.build();

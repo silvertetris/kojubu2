@@ -25,7 +25,7 @@ public class Kojububot {
             GatewayIntent.MESSAGE_CONTENT};
 
     public Kojububot() throws LoginException {
-        String token = "toooken";
+        String token = "OTczOTMwOTA5OTY1MzczNDQy.GXpDvc.FQhP0pJiNwFmj4sMoRS3plXMk9yp6pmCpckEDw";
         DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(token);
         builder.setActivity(Activity.listening("Hi there!"));
         builder.setStatus(OnlineStatus.ONLINE);

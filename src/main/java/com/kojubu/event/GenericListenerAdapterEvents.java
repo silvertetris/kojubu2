@@ -33,10 +33,10 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
         String MemberTag = event.getMember().getUser().getAsTag();
         String GuildName = event.getGuild().getName();
         String ChannelName=event.getChannel().getName();
-        super.onMessageReceived(event);
         if(!event.getMessage().isFromGuild()) {
             return;
         }
+        super.onMessageReceived(event);
         if (event.getMessage().getContentRaw().equals("이동훈")) {
             k++;
             event.getChannel().sendMessage("귀여운 기니피그").addContent("\n``적은 횟수: " + k + "번``").queue();

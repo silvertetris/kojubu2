@@ -3,6 +3,7 @@ package com.kojubu.event;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberRemoveEvent;
+import net.dv8tion.jda.api.events.message.GenericMessageEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -29,6 +30,11 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
     }
 
     @Override
+    public void onGenericMessage(GenericMessageEvent event) {
+        super.onGenericMessage(event);
+    }
+
+    @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         try{
             String MemberTag = event.getMember().getUser().getAsTag();
@@ -46,6 +52,5 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
         } catch (NullPointerException e) {
             System.out.println("누군가 봇으로 메세지 보냄!");
         }
-
     }
 }

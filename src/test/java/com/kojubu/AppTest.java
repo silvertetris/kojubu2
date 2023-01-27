@@ -2,7 +2,7 @@ package com.kojubu;
 
 import javax.security.auth.login.LoginException;
 
-import com.kojubu.event.EventListener;
+import com.kojubu.event.GenericListenerAdapterEvents;
 import com.kojubu.jabda.KojubuCommands;
 
 import net.dv8tion.jda.api.OnlineStatus;
@@ -14,11 +14,11 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 public class AppTest {
     private final ShardManager shardManager;
     public AppTest() throws LoginException {
-        String token = "MTAyNzg1OTg0MjE1ODgyMTQxOA.GWTOel.2PanbC35JJ19J6hi92fxbwOBrSLlzcXrYl5kR8";
+        String token = "OTczOTMwOTA5OTY1MzczNDQy.GXpDvc.FQhP0pJiNwFmj4sMoRS3plXMk9yp6pmCpckEDw";
         DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(token);
         builder.setActivity(Activity.listening("Kendrick"));
         builder.setStatus(OnlineStatus.IDLE);
-        builder.addEventListeners(new EventListener(), new KojubuCommands());
+        builder.addEventListeners(new GenericListenerAdapterEvents(), new KojubuCommands());
         builder.enableCache(CacheFlag.VOICE_STATE, CacheFlag.EMOJI, CacheFlag.ROLE_TAGS, CacheFlag.STICKER);
         shardManager = builder.build();
     }

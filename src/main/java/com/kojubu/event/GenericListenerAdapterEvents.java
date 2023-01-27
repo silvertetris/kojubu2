@@ -11,6 +11,7 @@ import java.util.List;
 
 public class GenericListenerAdapterEvents extends ListenerAdapter {
     int k=0;
+    int HwakMa=0;
     @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {//this Guildevents have to get exact channel, not generic
         String MemberMention = event.getUser().getAsMention();
@@ -40,6 +41,10 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
             String MemberTag = event.getMember().getUser().getAsTag();
             String GuildName = event.getGuild().getName();
             String ChannelName=event.getChannel().getName();
+            if (event.getMessage().getContentRaw().equals("백마")) {
+                HwakMa++;
+                event.getChannel().sendMessage("백마야 모배 그만해").addContent("\n``적은 횟수: "+HwakMa+"번``").queue();
+            }
             if (event.getMessage().getContentRaw().equals("이동훈")) {
                 k++;
                 event.getChannel().sendMessage("귀여운 기니피그").addContent("\n``적은 횟수: " + k + "번``").queue();

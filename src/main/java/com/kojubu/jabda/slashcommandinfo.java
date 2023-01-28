@@ -35,6 +35,8 @@ public class slashcommandinfo extends ListenerAdapter {
         GuildCommandData.add(Commands.slash("volume", "소리 크기 조절").addOptions(volumeData));
         GuildCommandData.add(Commands.slash("repeat", "반복"));
         GuildCommandData.add(Commands.slash("set_log", "로그 채널 생성"));
+        GuildCommandData.add(Commands.slash("set_welcome", "환영 채널 생성"));
+        GuildCommandData.add(Commands.slash("set_leave", "퇴장 채널 생성"));
         JDACommandData.add(Commands.slash("help", "도움, 설명"));
         event.getGuild().updateCommands().addCommands(GuildCommandData).queue();
         event.getJDA().updateCommands().addCommands(JDACommandData).queue();

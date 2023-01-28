@@ -19,7 +19,7 @@ public class GuildChannelLogs extends ListenerAdapter {
         TextChannel LogsChannel = FindLogsChannel.get(0);
 
         if(Command.equals("set_log")){
-            if(!(LogsChannel ==null)){
+            if(!event.getGuild().getTextChannelsByName("logs", true).isEmpty()){
                 event.deferReply().setEphemeral(true).queue();
                 event.getHook().sendMessage("**이미"+LogsChannel+"채널이 있습니다!**").queue();
             }

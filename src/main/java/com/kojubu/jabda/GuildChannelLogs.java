@@ -14,8 +14,6 @@ import java.util.List;
 public class GuildChannelLogs extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
-        String MemberTag = event.getMember().getUser().getAsTag();
-        String MemberMention = event.getMember().getAsMention();
         String GuildName = event.getGuild().getName();
         String Command = event.getName();
         List<TextChannel> FindLogsChannel = event.getGuild().getTextChannelsByName("logs", true);

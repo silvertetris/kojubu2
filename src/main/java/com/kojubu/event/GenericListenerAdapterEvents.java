@@ -3,15 +3,52 @@ package com.kojubu.event;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberRemoveEvent;
-import net.dv8tion.jda.api.events.message.GenericMessageEvent;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class GenericListenerAdapterEvents extends ListenerAdapter {
-    int k=0;
-    int HwakMa=0;
+    int k = 0;
+    int HwakMa = 0;
+
+    @Override
+    public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
+        String command = event.getName();
+        String guildName = event.getGuild().getName();
+        List<TextChannel> FindWelcomeChannel = event.getGuild().getTextChannelsByName("welcome", true);
+        List<TextChannel> findLeaveChannel = event.getGuild().getTextChannelsByName("bye", true);
+
+        if (command.equals("set_welcome")) {
+            event.deferReply().setEphemeral(true).queue();
+            if (!FindWelcomeChannel.isEmpty()) {
+                event.getHook().sendMessage("이미 " + FindWelcomeChannel.get(0) + "채널이 있습니다!").queue();
+                return;
+            }
+            event.getHook().sendMessage("환영 채널 생성 완료!").queue();
+            event.getGuild().createTextChannel("welcome").queue();
+            event.getUser().openPrivateChannel().queue(privateChannel ->
+            {
+                privateChannel.sendMessage("**" + guildName + "** 서버에 환영 채널을 생성했어요!").queue();
+            });
+        }
+        if (command.equals("set_leave")) {
+            event.deferReply().setEphemeral(true).queue();
+            if (!findLeaveChannel.isEmpty()) {
+                event.getHook().sendMessage("이미" + findLeaveChannel.get(0) + "채널이 있습니다!").queue();
+                return;
+            }
+            event.getHook().sendMessage("퇴장 채널 생성 완료!").queue();
+            event.getGuild().createTextChannel("bye").queue();
+            event.getUser().openPrivateChannel().queue(privateChannel ->
+            {
+                privateChannel.sendMessage("**" + guildName + "** 서버에 퇴장 채널을 생성했어요!").queue();
+            });
+        }
+    }
+
     @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {//this Guildevents have to get exact channel, not generic
         String MemberMention = event.getUser().getAsMention();
@@ -31,29 +68,24 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
     }
 
     @Override
-    public void onGenericMessage(GenericMessageEvent event) {
-        super.onGenericMessage(event);
-    }
-
-    @Override
-    public void onMessageReceived(MessageReceivedEvent event) {
-        try{
+    public void onMessageReceived(@NotNull MessageReceivedEvent event) {
+        try {
             String MemberTag = event.getMember().getUser().getAsTag();
             String GuildName = event.getGuild().getName();
-            String ChannelName=event.getChannel().getName();
+            String ChannelName = event.getChannel().getName();
             if (event.getMessage().getContentRaw().equals("백마")) {
                 HwakMa++;
-                event.getChannel().sendMessage("백마야 모배 그만해").addContent("\n``적은 횟수: "+HwakMa+"번``").queue();
+                event.getChannel().sendMessage("백마야 모배 그만해").addContent("\n``적은 횟수: " + HwakMa + "번``").queue();
             }
             if (event.getMessage().getContentRaw().equals("이동훈")) {
                 k++;
                 event.getChannel().sendMessage("귀여운 기니피그").addContent("\n``적은 횟수: " + k + "번``").queue();
             }
             super.onMessageReceived(event);
-            if(!event.getMessage().isFromGuild()) {
+            if (!event.getMessage().isFromGuild()) {
                 return;
             }
-            System.out.println(GuildName+":"+ChannelName+"\n"+MemberTag+":"+event.getMessage().getContentDisplay());
+            System.out.println(GuildName + ":" + ChannelName + "\n" + MemberTag + ":" + event.getMessage().getContentDisplay());
         } catch (NullPointerException e) {
             System.out.println("누군가 봇으로 메세지 보냄!");
         }

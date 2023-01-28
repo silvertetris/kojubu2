@@ -4,11 +4,13 @@ import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class GuildChannelLogs extends ListenerAdapter {
-    public void LogChannelSetupSlashCommand(SlashCommandInteractionEvent event) {
+    @Override
+    public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
         String MemberTag = event.getMember().getUser().getAsTag();
         String MemberMention = event.getMember().getAsMention();
         String GuildName=event.getGuild().getName();
@@ -28,7 +30,8 @@ public class GuildChannelLogs extends ListenerAdapter {
             }
         }
 }
-    public void ShowLogs(MessageReceivedEvent event) {
+    @Override
+    public void onMessageReceived(MessageReceivedEvent event) {
         try{
             String message = event.getMessage().getContentRaw();
             String member=event.getMessage().getAuthor().getAsTag();

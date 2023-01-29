@@ -19,6 +19,34 @@ public class ElswordPartySynergy extends ListenerAdapter{
                         ``[체인지]아머 브레이크`` - **7초간 물리 방어력 감소 50%, 14초간 피격 대상 공격력 z증가 20%**
                         ``그랜드 크로스`` - **10초간 모든 방어력 감소 20%**
                         ``집념`` - **5초간 물리 방어력 20% 감소**""");
+    EmbedBuilder elsword_rune_master = new EmbedBuilder().setTitle("**룬 마스터 (룬마)**")
+            .setAuthor("엘소드 2라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069172805410754620/img_pop_c1.png?width=497&height=473")
+            .setColor(Color.red)
+            .setDescription("""
+                        ``피닉스 탤런`` - **9.75초간 이동속도 10%, 매 초 MP 1.5 회복**
+                        ``룬의 영역`` - **10초간 영역 내 아군의 마법 공격력 증가 5%, 10초간 [룬의 각인] 디버프 대상이 받는 마법 피해 증가 5%**
+                        ``[체인지]루나 블레이드`` - **7초간 모든 속성 저항 감소 50**
+                        ``인챈트 브레이크`` - **5초간 모든 속성 저항 감소 130**
+                        ``마력의 사슬`` - **10초간 마법 방어력 감소 12%**
+                        ``윈드 블레이드, 라이징 슬래시, 스톰 블레이드 (마력의 흐름)`` - **10초간 모든 속성 저항 감소 30 * 3**""");
+    EmbedBuilder elsword_immortal = new EmbedBuilder().setTitle("**임모탈**")
+            .setAuthor("엘소드 3라인")
+            .setThumbnail("https://cdn.discordapp.com/attachments/1010960966260891658/1069172941209735208/ebaaa8ed8388eba788ed81b4ec9dbceb9fac2e706e67.png")
+            .setColor(Color.red)
+            .setDescription("""
+                        ``콘웰을 사용하는 스킬 (전투의 달인)`` - **5초간 받는 피해 증가 10%**
+                        ``[체인지] 인피니티 체이서`` - **약 4초간 범위 내 아군의 공격력 증가 10%, 이동속도 증가 30%**
+                        """);
+    EmbedBuilder elsword_genesis = new EmbedBuilder().setTitle("**제네시스 (제네)**")
+            .setAuthor("엘소드 4라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069173096185069569/img_char2.png?width=386&height=473")
+            .setColor(Color.red)
+            .setDescription("""
+                        ``도미니언`` - **10초간 범위 내 아군 모든 속성 저항 증가 100, 적 모든 속성 저항 감소 130**
+                        ``엘의 영광`` - **10초간 아군 받는 피해 감소 5% * 3**
+                        ``강렬한 파괴 스킬 (운명, 갈망)`` - **10초간 마법 방어력 감소 20%**""");
+
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
@@ -51,7 +79,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
 
     @Override
     public void onGenericSelectMenuInteraction(GenericSelectMenuInteractionEvent event) {
-        StringSelectMenu lane1= StringSelectMenu.create("menu:elsword")
+        StringSelectMenu line1= StringSelectMenu.create("menu:elsword")
                 .setPlaceholder("라인 선택")
                 .setRequiredRange(1, 1)
                 .addOption("나이트 엠퍼러", "knight_emperor")
@@ -62,35 +90,22 @@ public class ElswordPartySynergy extends ListenerAdapter{
 
         if(event.getComponentId().equals("menu:character")) {
             if(event.getValues().get(0).equals("Elsword")){
-                event.deferReply().setEphemeral(true).addActionRow(lane1).queue();
+                event.deferReply().setEphemeral(true).addActionRow(line1).queue();
             }
         }
-        if(event.getComponentId().equals("menu:elsword")) { //elsword
+        if(event.getComponentId().equals("menu:elsword")) { //엘소드 시너지
             event.deferReply().setEphemeral(true).queue();
-            if(event.getValues().get(0).equals("knight_emperor"))
-            {
+            if(event.getValues().get(0).equals("knight_emperor")) {
                 event.getHook().sendMessageEmbeds(elsword_knight_emperor.build()).queue();
             }
             if(event.getValues().get(0).equals("rune_master")) {
-                event.getHook().sendMessage("""
-                        ``피닉스 탤런`` - **9.75초간 이동속도 10%, 매 초 MP 1.5 회복**
-                        ``룬의 영역`` - **10초간 영역 내 아군의 마법 공격력 증가 5%, 10초간 [룬의 각인] 디버프 대상이 받는 마법 피해 증가 5%**
-                        ``[체인지]루나 블레이드`` - **7초간 모든 속성 저항 감소 50**
-                        ``인챈트 브레이크`` - **5초간 모든 속성 저항 감소 130**
-                        ``마력의 사슬`` - **10초간 마법 방어력 감소 12%**
-                        ``윈드 블레이드, 라이징 슬래시, 스톰 블레이드 (마력의 흐름)`` - **10초간 모든 속성 저항 감소 30 * 3**""").queue();
+                event.getHook().sendMessageEmbeds(elsword_rune_master.build()).queue();
             }
             if(event.getValues().get(0).equals("immortal")) {
-                event.getHook().sendMessage("""
-                        ``콘웰을 사용하는 스킬 (전투의 달인)`` - **5초간 받는 피해 증가 10%**
-                        ``[체인지] 인피니티 체이서`` - **약 4초간 범위 내 아군의 공격력 증가 10%, 이동속도 증가 30%**
-                        """).queue();
+                event.getHook().sendMessageEmbeds(elsword_immortal.build()).queue();
             }
             if(event.getValues().get(0).equals("genesis")) {
-                event.getHook().sendMessage("""
-                        ``도미니언`` - **10초간 범위 내 아군 모든 속성 저항 증가 100, 적 모든 속성 저항 감소 130**
-                        ``엘의 영광`` - **10초간 아군 받는 피해 감소 5% * 3**
-                        ``강렬한 파괴 스킬 (운명, 갈망)`` - **10초간 마법 방어력 감소 20%**""").queue();
+                event.getHook().sendMessageEmbeds(elsword_genesis.build()).queue();
             }
         }
     }

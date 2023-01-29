@@ -4,7 +4,9 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.GenericSelectMenuInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu;
+import net.dv8tion.jda.api.requests.restaction.interactions.ReplyCallbackAction;
 
 import java.awt.*;
 
@@ -142,7 +144,42 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     퀵슬롯 아이템 사용 시 회복 아이템 효과 1% 증가 (최대 10중첩)
                     각성 상태일 경우 최대 MP 40 증가```
                     """);
-
+    EmbedBuilder raven_furious_blade = new EmbedBuilder().setTitle("퓨리어스 블레이드 (퓨블)")
+            .setAuthor("레이븐 1라인")
+            .setColor(Color.BLACK)
+            .setDescription("""
+                    `아머 크래시` - **7초간 물리 방어력 감소 39%**
+                    """);
+    EmbedBuilder raven_raze_hearts = new EmbedBuilder().setTitle("레이즈 하츠 (레하)")
+            .setAuthor("레이븐 2라인")
+            .setColor(Color.BLACK)
+            .setDescription("""
+                    `웨폰 크래시` - **7초간 공격력 감소 45%**
+                    `[체인지]뉴클리어` - **5초간 마법 방어력 감소 20%, 모든 속성 저항 감소 150, 크리티컬로 받는 피해 증가 14%**
+                    """);
+    EmbedBuilder raven_nova = new EmbedBuilder().setTitle("노바 임퍼레이터 (노바)")
+            .setAuthor("레이븐 3라인")
+            .setColor(Color.BLACK)
+            .setDescription("""
+                    `이프리트 플레임` - **6.5초간 모든 방어력 감소 15%, 모든 속성 저항 감소 250**
+                    ``이그니션 크로우 - 네이팜`` - **8.3초간 불길 속 적 받는 피해 증가 15%**
+                    `오버히트 스킬 (실전의 대가)` - **[고열 감지] 버프 5중첩 도달 시 아군 MP 100 회복, 10초간 매 초 마다 MP 20씩 회복**
+                    `용병의 생존전략` - **15초간 공격력, 방어력 증가 12%**
+                    """);
+    EmbedBuilder raven_revenant = new EmbedBuilder().setTitle("레버넌트 (레버)")
+            .setAuthor("레이븐 4라인")
+            .setColor(Color.BLACK)
+            .setDescription("""
+                    `인터딕션` - **15초간 모든 속성 저항 감소 120 / 150 / 180[발라시아]**
+                    `스프라우트` - **15초간 물리 공격 받는 피해 증가 5% / 7.5% / 10%[발라시아]**
+                    `소울 크래시` - **7초간 크리티컬로 받는 피해 15% 증가**
+                    `카타콤` - **30초간 강인한 / 강렬한 / 초월한[발라시아] 스킬 데미지 증가 4~20%**
+                    `데스 스크림, [체인지] 데스 스크림` - **10초간 보스에게 받는 피해 감소 5% / 10% / 15%[발라시아]**
+                    `머시리스 리벤지` - **적의 디버프 시간 증가 10% / 15% / 20%[발라시아]**
+                    `침식` - **30초간 모든 방어력 감소 2~20%**
+                    `말살, 망자의 길` - **흔적 흡수 시 랜덤한 스킬 1개의 재사용 시간 7초 감소, 모든 속도 증가 10%, HP 회복 10%**
+                    `해방된 의지 : 뮤턴트 리퍼` - **체력 50% 이하일 경우 받는 피해 증가 10%, 체력 10% 이하일 경우 받는 피해 증가 15%, 30초간 모든 방어력 감소 20%**
+                    """);
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
@@ -175,6 +212,9 @@ public class ElswordPartySynergy extends ListenerAdapter{
 
     @Override
     public void onGenericSelectMenuInteraction(GenericSelectMenuInteractionEvent event) {
+        Object get_value = event.getValues().get(0);
+        InteractionHook get_hook = event.getHook();
+        ReplyCallbackAction setEphemeral_true = event.deferReply().setEphemeral(true);
         StringSelectMenu elsword_line= StringSelectMenu.create("menu:elsword")
                 .setPlaceholder("엘소드 라인 선택")
                 .setRequiredRange(1, 1)
@@ -199,62 +239,88 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("트와일라잇", "twilight")
                 .addOption("프로피티스", "prophetess")
                 .build();
+        StringSelectMenu raven_line = StringSelectMenu.create("menu:raven")
+                .setPlaceholder("레이븐 전직 선택")
+                .setRequiredRange(1, 1)
+                .addOption("퓨리어스 블레이드", "furious_blade")
+                .addOption("레이즈 하츠", "raze_hearts")
+                .addOption("노바 임퍼레이터", "nova")
+                .addOption("레버넌트", "revenant")
+                .build();
 
 
         if(event.getComponentId().equals("menu:character")) {
-            if(event.getValues().get(0).equals("Elsword")){
-                event.deferReply().setEphemeral(true).addActionRow(elsword_line).queue();
+            if(get_value.equals("Elsword")){
+                setEphemeral_true.addActionRow(elsword_line).queue();
             }
-            if(event.getValues().get(0).equals("Aisha")){
-                event.deferReply().setEphemeral(true).addActionRow(aisha_line).queue();
+            if(get_value.equals("Aisha")){
+                setEphemeral_true.addActionRow(aisha_line).queue();
             }
-            if(event.getValues().get(0).equals("Rena")) {
-                event.deferReply().setEphemeral(true).addActionRow(rena_line).queue();
+            if(get_value.equals("Rena")) {
+                setEphemeral_true.addActionRow(rena_line).queue();
+            }
+            if(get_value.equals("Raven")) {
+                setEphemeral_true.addActionRow(raven_line).queue();
             }
         }
         if(event.getComponentId().equals("menu:elsword")) { //엘소드 시너지
-            event.deferReply().setEphemeral(true).queue();
-            if(event.getValues().get(0).equals("knight_emperor")) {
-                event.getHook().sendMessageEmbeds(elsword_knight_emperor.build()).queue();
+            setEphemeral_true.queue();
+            if(get_value.equals("knight_emperor")) {
+                get_hook.sendMessageEmbeds(elsword_knight_emperor.build()).queue();
             }
-            if(event.getValues().get(0).equals("rune_master")) {
-                event.getHook().sendMessageEmbeds(elsword_rune_master.build()).queue();
+            if(get_value.equals("rune_master")) {
+                get_hook.sendMessageEmbeds(elsword_rune_master.build()).queue();
             }
-            if(event.getValues().get(0).equals("immortal")) {
-                event.getHook().sendMessageEmbeds(elsword_immortal.build()).queue();
+            if(get_value.equals("immortal")) {
+                get_hook.sendMessageEmbeds(elsword_immortal.build()).queue();
             }
-            if(event.getValues().get(0).equals("genesis")) {
-                event.getHook().sendMessageEmbeds(elsword_genesis.build()).queue();
+            if(get_value.equals("genesis")) {
+                get_hook.sendMessageEmbeds(elsword_genesis.build()).queue();
             }
         }
         if(event.getComponentId().equals("menu:aisha")) { //아이샤 시너지
-            event.deferReply().setEphemeral(true).queue();
-            if(event.getValues().get(0).equals("aether_sage")) {
-                event.getHook().sendMessageEmbeds(aisha_aether_sage.build()).queue();
+            setEphemeral_true.queue();
+            if(get_value.equals("aether_sage")) {
+                get_hook.sendMessageEmbeds(aisha_aether_sage.build()).queue();
             }
-            if(event.getValues().get(0).equals("oz")) {
-                event.getHook().sendMessageEmbeds(aisha_oz.build()).queue();
+            if(get_value.equals("oz")) {
+                get_hook.sendMessageEmbeds(aisha_oz.build()).queue();
             }
-            if(event.getValues().get(0).equals("metamorphy")) {
-                event.getHook().sendMessageEmbeds(aisha_metamorphy.build()).queue();
+            if(get_value.equals("metamorphy")) {
+                get_hook.sendMessageEmbeds(aisha_metamorphy.build()).queue();
             }
-            if(event.getValues().get(0).equals("lord_azoth")) {
-                event.getHook().sendMessageEmbeds(aisha_Lord_Azoth.build()).queue();
+            if(get_value.equals("lord_azoth")) {
+                get_hook.sendMessageEmbeds(aisha_Lord_Azoth.build()).queue();
             }
         }
-        if(event.getComponentId().equals("menu:rena")) {
-            event.deferReply().setEphemeral(true).queue();
-            if(event.getValues().get(0).equals("wind_sneaker")) {
-                event.getHook().sendMessageEmbeds(rena_wind_sneaker.build()).queue();
+        if(event.getComponentId().equals("menu:rena")) { //레나 시너지
+            setEphemeral_true.queue();
+            if(get_value.equals("wind_sneaker")) {
+                get_hook.sendMessageEmbeds(rena_wind_sneaker.build()).queue();
             }
-            if(event.getValues().get(0).equals("daybreaker")) {
-                event.getHook().sendMessageEmbeds(rena_daybreaker.build()).queue();
+            if(get_value.equals("daybreaker")) {
+                get_hook.sendMessageEmbeds(rena_daybreaker.build()).queue();
             }
-            if(event.getValues().get(0).equals("twilight")) {
-                event.getHook().sendMessageEmbeds(rena_twilight.build()).queue();
+            if(get_value.equals("twilight")) {
+                get_hook.sendMessageEmbeds(rena_twilight.build()).queue();
             }
-            if(event.getValues().get(0).equals("prophetess")) {
-                event.getHook().sendMessageEmbeds(rena_prophetess.build()).queue();
+            if(get_value.equals("prophetess")) {
+                get_hook.sendMessageEmbeds(rena_prophetess.build()).queue();
+            }
+        }
+        if(event.getComponentId().equals("menu:raven")) { //레이븐 시너지
+            setEphemeral_true.queue();
+            if(get_value.equals("furious_blade")) {
+                get_hook.sendMessageEmbeds(raven_furious_blade.build()).queue();
+            }
+            if(get_value.equals("raze_hearts")) {
+                get_hook.sendMessageEmbeds(raven_raze_hearts.build()).queue();
+            }
+            if(get_value.equals("nova")) {
+                get_hook.sendMessageEmbeds(raven_nova.build()).queue();
+            }
+            if(get_value.equals("revenant")) {
+                get_hook.sendMessageEmbeds(raven_revenant.build()).queue();
             }
         }
     }

@@ -3,11 +3,8 @@ package com.kojubu.bot;
 import javax.security.auth.login.LoginException;
 
 import com.kojubu.event.GenericListenerAdapterEvents;
-import com.kojubu.jabda.GuildChannelLogs;
-import com.kojubu.jabda.helpInfo;
-import com.kojubu.jabda.KojubuCommands;
+import com.kojubu.jabda.*;
 
-import com.kojubu.jabda.slashcommandinfo;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -32,7 +29,7 @@ public class Kojububot {
         builder.setActivity(Activity.listening("Hi there!"));
         builder.setStatus(OnlineStatus.ONLINE);
         builder.addEventListeners(new GenericListenerAdapterEvents(),
-                new KojubuCommands(), new slashcommandinfo(), new helpInfo(), new GuildChannelLogs());
+                new KojubuCommands(), new slashcommandinfo(), new helpInfo(), new GuildChannelLogs(), new ElswordPartyMaker());
         builder.enableIntents(Arrays.asList(INTENTS));
         builder.enableCache(CacheFlag.VOICE_STATE, CacheFlag.EMOJI, CacheFlag.ROLE_TAGS, CacheFlag.STICKER, CacheFlag.ACTIVITY);
         shardManager = builder.build();

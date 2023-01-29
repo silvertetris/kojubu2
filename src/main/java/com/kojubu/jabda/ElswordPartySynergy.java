@@ -84,12 +84,12 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     `미스틱 플라스크` - **청색 - 물약 획득 시 39초간 캐릭터 크기 감소, 초당 MP 30씩 자연 회복**
                     `미스틱 플라스크` - **황색 - 물약 획득 시 26초간 슈퍼아머**
                     `미스틱 플라스크` - **자색 - 물약 획득 시 2.6초간 혼란 상태이상**
-                    `리파인드` - **32.5초간 적 물리/마법 방어력 10% 감소, 디버프 해제 및 디버프 해제 시[1] 32.5초간 모든 스킬 데미지 증가 10%**
+                    `리파인드` - **32.5초간 적 물리/마법 방어력 10% 감소, 디버프 해제 및 디버프 해제 시 32.5초간 모든 스킬 데미지 증가 10%**
                     `엔벨롭스` - **10초간 영역 내 아군 받는 피해 감소 20%**
-                    `아르케-마테르` - **15초간[A] 물리/마법 방어력 무시 증가 5%**
-                    `아르케-메루스` - **15초간[A] 모든 속도 증가 5%**
+                    `아르케-마테르` - **15초간 물리/마법 방어력 무시 증가 5%**
+                    `아르케-메루스` - **15초간 모든 속도 증가 5%**
                     `조화` - **15초간 아군이 독 디버프를 가진 적에게 주는 피해 증가 10%**
-                    `현자의 돌` - **15초간 물리/마법 공격력 증가 10%, 8초10초간[4] 퀵 슬롯 아이템의 재사용 대기 시간 15초로 변경**
+                    `현자의 돌` - **15초간 물리/마법 공격력 증가 10%, 8초10초간 퀵 슬롯 아이템의 재사용 대기 시간 15초로 변경**
                     `아페이론` - **시전자 HP가 0이 될 시 주변 아군의 HP/MP를 5초동안 초당 20%씩 회복**""");
 
     EmbedBuilder rena_wind_sneaker = new EmbedBuilder().setTitle("아네모스 (아네)")
@@ -105,7 +105,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
             .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069198667736690728/EB8DB0EC9DB4EBB88CEBA088EC9DB4ECBBA4.png?width=497&height=473")
             .setColor(Color.green)
             .setDescription("""
-                    `프리징 애로우, [체인지] 프리징 애로우` - 빙결 3.9초(각성 시 6.5초)[5]
+                    `프리징 애로우, [체인지] 프리징 애로우` - 빙결 3.9초(각성 시 6.5초)
                     `낙인의 사격`- 10초간 추가 피해 10%, 받는 크리티컬 피해 증가 15%, 마법 방어력 감소 20% (낙인의 흔적과 중복되지 않음)
                     `낙인의 흔적` - 10초간(타겟이 5 이상일 경우 20초간) 추가 피해 20%, 받는 크리티컬 피해 증가 15%, 마법 방어력 감소 25% (낙인의 사격과 중복되지 않음)
                     """);
@@ -123,7 +123,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
             .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069199031366062100/FXB5iltaAAAYD3H.png?width=412&height=473")
             .setColor(Color.green)
             .setDescription("""
-                    `리슨` - **랜덤하게 아군 MP 50 회복, 또는 특수 자원[특수자원] 20% 회복, 또는 둘 다 적용**
+                    `리슨` - **랜덤하게 아군 MP 50 회복, 또는 특수 자원 20% 회복, 또는 둘 다 적용**
                     `튜닝` - **약 5초간 아군의 디버프를 지속적으로 제거**
                     `엠파시스` - **5초간 아군 슈퍼아머**
                     `해방된 의지 : 테일 스피너` - **랜덤하게 중간보스 및 보스에게 입히는 데미지 증가 2% (최대 5중첩), 또는 중간보스 및 보스가 아닌 적에게 입히는 데미지 증가 2% (최대 5중첩) (발동 이후 영구 적용)**
@@ -174,12 +174,12 @@ public class ElswordPartySynergy extends ListenerAdapter{
             .setColor(Color.BLACK)
             .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069208762612711474/EBA088EBB284EB848CED8AB8-892x1024.png?width=412&height=473")
             .setDescription("""
-                    `인터딕션` - **15초간 모든 속성 저항 감소 120 / 150 / 180[발라시아]**
-                    `스프라우트` - **15초간 물리 공격 받는 피해 증가 5% / 7.5% / 10%[발라시아]**
+                    `인터딕션` - **15초간 모든 속성 저항 감소 120 / 150 / 180**
+                    `스프라우트` - **15초간 물리 공격 받는 피해 증가 5% / 7.5% / 10%**
                     `소울 크래시` - **7초간 크리티컬로 받는 피해 15% 증가**
-                    `카타콤` - **30초간 강인한 / 강렬한 / 초월한[발라시아] 스킬 데미지 증가 4~20%**
-                    `데스 스크림, [체인지] 데스 스크림` - **10초간 보스에게 받는 피해 감소 5% / 10% / 15%[발라시아]**
-                    `머시리스 리벤지` - **적의 디버프 시간 증가 10% / 15% / 20%[발라시아]**
+                    `카타콤` - **30초간 강인한 / 강렬한 / 초월한 스킬 데미지 증가 4~20%**
+                    `데스 스크림, [체인지] 데스 스크림` - **10초간 보스에게 받는 피해 감소 5% / 10% / 15%**
+                    `머시리스 리벤지` - **적의 디버프 시간 증가 10% / 15% / 20%**
                     `침식` - **30초간 모든 방어력 감소 2~20%**
                     `말살, 망자의 길` - **흔적 흡수 시 랜덤한 스킬 1개의 재사용 시간 7초 감소, 모든 속도 증가 10%, HP 회복 10%**
                     `해방된 의지 : 뮤턴트 리퍼` - **체력 50% 이하일 경우 받는 피해 증가 10%, 체력 10% 이하일 경우 받는 피해 증가 15%, 30초간 모든 방어력 감소 20%**
@@ -216,11 +216,65 @@ public class ElswordPartySynergy extends ListenerAdapter{
             .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069211581700911114/img.png?width=475&height=473")
             .setDescription("""
                     `화이트 박스` - **범위 내 자신과 아군의 모든 디버프 제거**
-                    `퓨리파이` - **짧은 순간 받는 피해 감소 50% / 70% / 99.9%[12]**
+                    `퓨리파이` - **짧은 순간 받는 피해 감소 50% / 70% / 99.9%**
                     `프라이데이` - **(사망 시) 15초간 모든 피해 증가 30%, 받는 피해 증가 20%**
                     `매스커레이드` - **아군에게 20초간 효과 없는 디버프 2종 부여**
                     `3각성 코어 릴리즈 (해방된 의지 : 코드 페일리스)` - **5초간 물리 방어력 감소 30%**
                     """);
+    EmbedBuilder chung_1line=new EmbedBuilder().setTitle("코멧 크루세이더")
+            .setAuthor("청 1라인")
+            .setColor(Color.CYAN)
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069223778300727306/ECB2AD_1-3_ED9484EBA19CEBAAA8EC8598EC9DBCEB9FACEC8AA4ED8AB828EC9DBCEBB09829.png?width=550&height=473")
+            .setDescription("""
+                    `아이언 하울링` - **5초간 물리 방어력 감소 10%, 범위 내 아군 모든 디버프 제거**
+                    `버스트 울프` - **주변 아군 2명의 디버프를 피격 대상에게 최대 4개 전이**
+                    `[체인지]버스트 울프` - **받는 피해 증가 10% (판데모니움과 중복되지 않음)**
+                    `판데모니움` - **받는 피해 증가 20% ([체인지]버스트 울프와 중복되지 않음)**
+                    `원더 월, [체인지] 원더 월` - **11.5초간 받는 피해 감소 50%, 슈퍼아머**
+                    `래피드 가디언` - **12초간 동작속도 증가 8%, 스킬 쿨타임 가속 1.4배, MP 회수량 2배**
+                    `마운틴 블라스트` - **빙결 1단계 3초 / 2단계 4초 / 3단계 이상 5초**
+                    `아이언 하울링, 판데모니움, 칼라드볼그 페인, 래피드 가디언 (가디언 포스)` - **20초간 물리/마법 공격력 감소 30%, 방어력 감소 15%**
+                    """);
+    EmbedBuilder chung_2line=new EmbedBuilder().setTitle("페이탈 팬텀")
+            .setAuthor("청 2라인")
+            .setColor(Color.CYAN)
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069223834613465088/img_pop_c6.png?width=497&height=473")
+            .setDescription("""
+                    `시너지 없음`
+                    """);
+
+    EmbedBuilder chung_3line=new EmbedBuilder().setTitle("센츄리온")
+            .setAuthor("청 3라인")
+            .setColor(Color.CYAN)
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069223885133852713/img_pop_c61.png?width=579&height=473")
+            .setDescription("""
+                    `페이탈 캐논, [체인지] 페이탈 캐논` - **7초간 마법 방어력 감소 40%**
+                    `지휘관의 표식` - **20초간 추가 피해 13%(가드 무시)**
+                    `캐논 스트라이크` - **지휘관의 표식 부여**
+                    `헤비 필드, [체인지] 헤비 필드` - **10초간 받는 피해량 증가 10%**
+                    `택티컬 필드` - **20초간 슈퍼아머, 피해 감소 10%, 초당 MP 회복 6**
+                    `[체인지]택티컬 필드` - **10초간 매 초 MP회복 6, 받는 피해 감소 40%, 중간보스/보스에게 주는 피해 증가 40%, 슈퍼아머 10초**
+                    """);
+
+    EmbedBuilder chung_4line=new EmbedBuilder().setTitle("디우스 아에르")
+            .setAuthor("청 4라인")
+            .setColor(Color.CYAN)
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069224172754051122/4.png?width=445&height=473")
+            .setDescription("""
+                    `브레이브 커버` - **아군 1명에게 8초간 슈퍼아머, 데미지를 시전자가 대신 받음**
+                    `[체인지] 브레이브 커버` - **15초간 아군 받는 데미지 감소 15%**
+                    `홀리 그레일` - **5초간 아군 HP/MP를 초당 1.2~18%씩 회복**
+                    `페더 크레스트` - **15초간 이동속도, 점프 속도 증가 26%, 동작 속도 증가 19.5%**
+                    `글로리 레거시` - **10초간 모든 속성 저항 감소 150**
+                    `어톤먼트` - **빙결 5초
+                    `필랜스로피` - **5초간 영역 내 아군 디버프 지속적으로 제거**
+                    `오러클(초월적인 고지)` - **20초간 아군 물리 공격력 증가 10%, 최대 HP 증가 20%, 슈퍼아머 상태 부여**
+                    `보누스 오페라` - **아군 HP/MP 회복 100%**
+                    `디우스 아에르(3단계 이상)` - **15초간 아군의 특수 자원[특수자원] 소모량 제거**
+                    `선구자의 문장 발동(선구자의 기도, 빛나는 정의)` - **아군 HP/MP 회복 10%**
+                    `선구자의 긍지 발동(선구자의 긍지)` - **15초간 아군 모든 스킬 데미지 증가 20%**
+                    """);
+
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
@@ -257,7 +311,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
         InteractionHook get_hook = event.getHook();
         ReplyCallbackAction setEphemeral_true = event.deferReply().setEphemeral(true);
         StringSelectMenu elsword_line= StringSelectMenu.create("menu:elsword")
-                .setPlaceholder("엘소드 라인 선택")
+                .setPlaceholder("엘소드 전직 선택")
                 .setRequiredRange(1, 1)
                 .addOption("나이트 엠퍼러", "knight_emperor")
                 .addOption("룬 마스터", "rune_master")
@@ -265,7 +319,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("제네시스", "genesis")
                 .build();
         StringSelectMenu aisha_line= StringSelectMenu.create("menu:aisha")
-                .setPlaceholder("아이샤 라인 선택")
+                .setPlaceholder("아이샤 전직 선택")
                 .setRequiredRange(1, 1)
                 .addOption("에테르 세이지", "aether_sage")
                 .addOption("오즈 소서러", "oz")
@@ -273,7 +327,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("로드 아조트", "lord_azoth")
                 .build();
         StringSelectMenu rena_line = StringSelectMenu.create("menu:rena")
-                .setPlaceholder("레나 라인 선택")
+                .setPlaceholder("레나 전직 선택")
                 .setRequiredRange(1, 1)
                 .addOption("아네모스", "wind_sneaker")
                 .addOption("데이브레이커", "daybreaker")
@@ -296,6 +350,14 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("코드: 사리엘", "sariel")
                 .addOption("코드: 안티테제", "antithese")
                 .build();
+        StringSelectMenu chung_line=StringSelectMenu.create("menu:chung")
+                .setPlaceholder("청 전직 선택")
+                .setRequiredRange(1, 1)
+                .addOption("코멧 크루세이더", "chung_1line")
+                .addOption("페이탈 팬텀", "chung_2line")
+                .addOption("센츄리온", "chung_3line")
+                .addOption("디우스 아에르", "chung_4line")
+                .build();
 
         if(event.getComponentId().equals("menu:character")) {
             if(get_value.equals("Elsword")){
@@ -309,6 +371,12 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("Raven")) {
                 setEphemeral_true.addActionRow(raven_line).queue();
+            }
+            if(get_value.equals("Eve")) {
+                setEphemeral_true.addActionRow(eve_line).queue();
+            }
+            if(get_value.equals("Chung")) {
+                setEphemeral_true.addActionRow(chung_line).queue();
             }
         }
         if(event.getComponentId().equals("menu:elsword")) { //엘소드 시너지
@@ -384,6 +452,21 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("antithese")) {
                 get_hook.sendMessageEmbeds(eve_antithese.build()).queue();
+            }
+        }
+        if(event.getComponentId().equals("menu:chung")) {//청 시너지
+            setEphemeral_true.queue();
+            if(get_value.equals("chung_1line")){
+                get_hook.sendMessageEmbeds(chung_1line.build()).queue();
+            }
+            if(get_value.equals("chung_2line")) {
+                get_hook.sendMessageEmbeds(chung_2line.build()).queue();
+            }
+            if(get_value.equals("chung_3line")) {
+                get_hook.sendMessageEmbeds(chung_3line.build()).queue();
+            }
+            if(get_value.equals("chung_4line")) {
+                get_hook.sendMessageEmbeds(chung_4line.build()).queue();
             }
         }
     }

@@ -221,7 +221,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     `매스커레이드` - **아군에게 20초간 효과 없는 디버프 2종 부여**
                     `3각성 코어 릴리즈 (해방된 의지 : 코드 페일리스)` - **5초간 물리 방어력 감소 30%**
                     """);
-    EmbedBuilder chung_1line=new EmbedBuilder().setTitle("코멧 크루세이더")
+    EmbedBuilder chung_1line=new EmbedBuilder().setTitle("코멧 크루세이더 (코크)")
             .setAuthor("청 1라인")
             .setColor(Color.CYAN)
             .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069223778300727306/ECB2AD_1-3_ED9484EBA19CEBAAA8EC8598EC9DBCEB9FACEC8AA4ED8AB828EC9DBCEBB09829.png?width=550&height=473")
@@ -235,7 +235,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     `마운틴 블라스트` - **빙결 1단계 3초 / 2단계 4초 / 3단계 이상 5초**
                     `아이언 하울링, 판데모니움, 칼라드볼그 페인, 래피드 가디언 (가디언 포스)` - **20초간 물리/마법 공격력 감소 30%, 방어력 감소 15%**
                     """);
-    EmbedBuilder chung_2line=new EmbedBuilder().setTitle("페이탈 팬텀")
+    EmbedBuilder chung_2line=new EmbedBuilder().setTitle("페이탈 팬텀 (페팬)")
             .setAuthor("청 2라인")
             .setColor(Color.CYAN)
             .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069223834613465088/img_pop_c6.png?width=497&height=473")
@@ -243,7 +243,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     `시너지 없음`
                     """);
 
-    EmbedBuilder chung_3line=new EmbedBuilder().setTitle("센츄리온")
+    EmbedBuilder chung_3line=new EmbedBuilder().setTitle("센츄리온 (센츄)")
             .setAuthor("청 3라인")
             .setColor(Color.CYAN)
             .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069223885133852713/img_pop_c61.png?width=579&height=473")
@@ -256,7 +256,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     `[체인지]택티컬 필드` - **10초간 매 초 MP회복 6, 받는 피해 감소 40%, 중간보스/보스에게 주는 피해 증가 40%, 슈퍼아머 10초**
                     """);
 
-    EmbedBuilder chung_4line=new EmbedBuilder().setTitle("디우스 아에르")
+    EmbedBuilder chung_4line=new EmbedBuilder().setTitle("디우스 아에르 (디아)")
             .setAuthor("청 4라인")
             .setColor(Color.CYAN)
             .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069224172754051122/4.png?width=445&height=473")
@@ -273,6 +273,58 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     `디우스 아에르(3단계 이상)` - **15초간 아군의 특수 자원[특수자원] 소모량 제거**
                     `선구자의 문장 발동(선구자의 기도, 빛나는 정의)` - **아군 HP/MP 회복 10%**
                     `선구자의 긍지 발동(선구자의 긍지)` - **15초간 아군 모든 스킬 데미지 증가 20%**
+                    """);
+    EmbedBuilder Ara_1line = new EmbedBuilder().setTitle("비천")
+            .setAuthor("아라 1라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069228521559425054/EC9584EB9DBC1-3_ED9484EBA19CEBAAA8EC8598EC9DBCEB9FACEC8AA4ED8AB828EC9DBCEBB09829.png?width=430&height=473")
+            .setColor(Color.ORANGE)
+            .setDescription("""
+                    `[체인지]용아 3식 : 팔괘장` - **4초간 받는 피해 증가 20%**
+                    `화련` - **20초간 모든 속성 저항 감소 250, 받는 피해 증가 20%**
+                    `맹호격` - **30초간 보스/중간보스를 제외한 적에게 주는 피해, 물리 공격력, 동작속도 10% 증가**
+                    `맹호 오의 : 맹호파천 (맹호의 힘)` - **30초간 크리티컬 증가 20%, 크리티컬 데미지 증가 15%**
+                    `맹호 4식 - 노도` - **5초간 모든 방어력 감소 33%**
+                    `제압 : 정` - **8초간 모든 방어력 감소 35%**
+                    `커맨드 / 액티브 공격 (창술의 극의)` - **5초간 모든 방어력 감소 20%**
+                    """);
+    EmbedBuilder Ara_2line = new EmbedBuilder().setTitle("범황")
+            .setAuthor("아라 2라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069228571014467715/EC9584EB9DBC_3ECB0A8ECA084ECA781_EBB294ED99A9_ED9484EBA19CEBAAA8EC8598.png?width=446&height=473")
+            .setColor(Color.ORANGE)
+            .setDescription("""
+                    `나찰 오의 : 연옥 (기력 발산)` - **30초간 마법 방어력 감소 40%, 모든 속성 저항 감소 100**
+                    `제압 : 기` - **8초간 모든 방어력 감소 35%**
+                    `화간접무 (3단계 이상)` - **5초간 받는 피해 증가 5%**
+                    """);
+    EmbedBuilder Ara_3line = new EmbedBuilder().setTitle("대라")
+            .setAuthor("아라 3라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069228606938689576/img_pop_c7.png?width=579&height=473")
+            .setColor(Color.ORANGE)
+            .setDescription("""
+                    `귀신걸음` - **7초간 물리 방어력 감소 58.5%**
+                    `여우령` - **5초간 물리 방어력 감소 10%**
+                    `제압 : 귀` - **8초간 모든 방어력 감소 35%**
+                    `여우불꽃` - **빙결 4초 혹은 단죄 4초**
+                    `술법 : 강령` - **20초간 초월한 스킬 데미지 증가 15%**
+                    `[체인지]술법 : 강령` - **20초간 강렬한 스킬 데미지 증가 15%**
+                    `여우 고개, 귀살 오의 : 백귀야행 (진혼)` - **구슬 획득한 아군 1명 1초간 MP회복 10%, 스킬 쿨타임 가속 2배 (구슬은 10초 유지)**
+                    `[체인지] 그림자 꽃망울` - **7초간 크리티컬로 피해를 받을 확률 증가 30%**
+                    `귀살 2식 : 귀신묶기, 귀살 3식 : 그림자 매듭, 귀살 4식 : 어둠가르기, 그림자 꽃망울 (마력 개방)` - **8초간 받는 피해 증가 10%**
+                    """);
+    EmbedBuilder Ara_4line = new EmbedBuilder().setTitle("일천")
+            .setAuthor("아라 4라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069228736802717746/snsEC9584EB9DBC4-3-ED9484EBA19CEBAAA8EC8598-EC9DBCEB9FACEC8AA4ED8AB8-892x1024.png?width=412&height=473")
+            .setColor(Color.ORANGE)
+            .setDescription("""
+                    `천구성` - **30초간 마법 공격력 증가 15%**
+                    `제압 : 도` - **8초간 모든 방어력 감소 35%**
+                    `현천 4식 : 막` - **30초간 받는 피해 감소 20%**
+                    `현천 오의 - 파` - **30초간 자신의 HP의 최대 30%만큼 아군의 최대 HP 증가**
+                    `성화` - **5초간 아군 HP/MP를 초당 1.2~18%씩 회복**
+                    `변환` - **5초간 슈퍼아머 상태**
+                    `호곡성` - **10초간 모든 속성 저항 감소 200**
+                    `한빙호기` - **빙결 5초**
+                    `천구성, 현천 4식 : 막, 성화, 변환 (합일)` - **30초간 모든 스킬 데미지 0.2~20% 증가**
                     """);
 
 
@@ -358,7 +410,14 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("센츄리온", "chung_3line")
                 .addOption("디우스 아에르", "chung_4line")
                 .build();
-
+        StringSelectMenu ara_line=StringSelectMenu.create("menu:ara")
+                .setPlaceholder("아라 전직 선택")
+                .setRequiredRange(1,1,)
+                .addOption("비천", "ara_1line")
+                .addOption("범황", "ara_2line")
+                .addOption("대라", "ara_3line")
+                .addOption("일천", "ara_4line")
+                .build();;
         if(event.getComponentId().equals("menu:character")) {
             if(get_value.equals("Elsword")){
                 setEphemeral_true.addActionRow(elsword_line).queue();
@@ -377,6 +436,9 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("Chung")) {
                 setEphemeral_true.addActionRow(chung_line).queue();
+            }
+            if(get_value.equals("Ara")) {
+                setEphemeral_true.addActionRow(ara_line).queue();
             }
         }
         if(event.getComponentId().equals("menu:elsword")) { //엘소드 시너지
@@ -467,6 +529,21 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("chung_4line")) {
                 get_hook.sendMessageEmbeds(chung_4line.build()).queue();
+            }
+        }
+        if(event.getComponentId().equals("menu:ara")) {//아라 시너지
+            setEphemeral_true.queue();
+            if(get_value.equals("ara_1line")) {
+                get_hook.sendMessageEmbeds(Ara_1line.build()).queue();
+            }
+            if(get_value.equals("ara_2line")) {
+                get_hook.sendMessageEmbeds(Ara_2line.build()).queue();
+            }
+            if(get_value.equals("ara_3line")) {
+                get_hook.sendMessageEmbeds(Ara_3line.build()).queue();
+            }
+            if(get_value.equals("ara_4line")) {
+                get_hook.sendMessageEmbeds(Ara_4line.build()).queue();
             }
         }
     }

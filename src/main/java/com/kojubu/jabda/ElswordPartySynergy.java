@@ -147,11 +147,13 @@ public class ElswordPartySynergy extends ListenerAdapter{
     EmbedBuilder raven_furious_blade = new EmbedBuilder().setTitle("퓨리어스 블레이드 (퓨블)")
             .setAuthor("레이븐 1라인")
             .setColor(Color.BLACK)
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069208613362618368/EBA088EC9DB4EBB8901-3_ED9484EBA19CEBAAA8EC8598EC9DBCEB9FACEC8AA4ED8AB8.png?width=396&height=473")
             .setDescription("""
                     `아머 크래시` - **7초간 물리 방어력 감소 39%**
                     """);
     EmbedBuilder raven_raze_hearts = new EmbedBuilder().setTitle("레이즈 하츠 (레하)")
             .setAuthor("레이븐 2라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069208638046077038/EBA088EC9DB4ECA780ED9598ECB8A0.png?width=438&height=473")
             .setColor(Color.BLACK)
             .setDescription("""
                     `웨폰 크래시` - **7초간 공격력 감소 45%**
@@ -160,6 +162,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
     EmbedBuilder raven_nova = new EmbedBuilder().setTitle("노바 임퍼레이터 (노바)")
             .setAuthor("레이븐 3라인")
             .setColor(Color.BLACK)
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069208680442114118/EB85B8EBB094EC9E84ED8DBCEBA088EC9DB4ED84B0.png?width=579&height=473")
             .setDescription("""
                     `이프리트 플레임` - **6.5초간 모든 방어력 감소 15%, 모든 속성 저항 감소 250**
                     ``이그니션 크로우 - 네이팜`` - **8.3초간 불길 속 적 받는 피해 증가 15%**
@@ -169,6 +172,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
     EmbedBuilder raven_revenant = new EmbedBuilder().setTitle("레버넌트 (레버)")
             .setAuthor("레이븐 4라인")
             .setColor(Color.BLACK)
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069208762612711474/EBA088EBB284EB848CED8AB8-892x1024.png?width=412&height=473")
             .setDescription("""
                     `인터딕션` - **15초간 모든 속성 저항 감소 120 / 150 / 180[발라시아]**
                     `스프라우트` - **15초간 물리 공격 받는 피해 증가 5% / 7.5% / 10%[발라시아]**
@@ -179,6 +183,43 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     `침식` - **30초간 모든 방어력 감소 2~20%**
                     `말살, 망자의 길` - **흔적 흡수 시 랜덤한 스킬 1개의 재사용 시간 7초 감소, 모든 속도 증가 10%, HP 회복 10%**
                     `해방된 의지 : 뮤턴트 리퍼` - **체력 50% 이하일 경우 받는 피해 증가 10%, 체력 10% 이하일 경우 받는 피해 증가 15%, 30초간 모든 방어력 감소 20%**
+                    """);
+    EmbedBuilder eve_ultimate = new EmbedBuilder().setTitle("코드: 얼티메이트 (얼티)")
+            .setAuthor("이브 1라인")
+            .setColor(Color.white)
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069211426004140082/450px-Portrait_-_Code_Ultimate_28Infobox29.png")
+            .setDescription("""
+                    `아토믹 실드` - **11초간 받는 피해 감소 25%**
+                    """);
+    EmbedBuilder eve_esencia = new EmbedBuilder().setTitle("코드: 에센시아 (에센)")
+            .setAuthor("이브 2라인")
+            .setColor(Color.white)
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069211501459689562/img_pop_c5.png?width=497&height=473")
+            .setDescription("""
+                    `리즌 프라이드` - **15초간 크리티컬&극대화 증가 10%**
+                    `리즌 프라이드 - 오베론` - **30초간 데미지 감소 스텟 감소 20%**
+                    `리즌 프라이드 - 오필리어` - **30초간 속성 저항 수치 10 * 3 감소**
+                    `치트 코드 : 룰 브레이크 - 오베론` - **오베론 주위의 아군 스페셜 액티브 스킬 데미지 증가 20%**
+                    `치트 코드 : 룰 브레이크 - 오필리어` - **오필리어 주위의 아군 물리/마법 방어력 증가 20%, 받는 피해 감소 20%**
+                    `치트 코드 : 룰 브레이크 - 페르디난드` - **페르디난드 주위의 아군 하이퍼 액티브 스킬 데미지 증가 30%**
+                    """);
+    EmbedBuilder eve_sariel = new EmbedBuilder().setTitle("코드: 사리엘")
+            .setAuthor("이브 3라인")
+            .setColor(Color.white)
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069211554714763314/5_EC9DB4EBB88C_ECBD94EB939CEFBC9AEC82ACEBA6ACEC9798.png?width=490&height=473")
+            .setDescription("""
+                    `시너지 없음`
+                    """);
+    EmbedBuilder eve_antithese = new EmbedBuilder().setTitle("코드: 안티테제 (안티)")
+            .setAuthor("이브 4라인")
+            .setColor(Color.white)
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069211581700911114/img.png?width=475&height=473")
+            .setDescription("""
+                    `화이트 박스` - **범위 내 자신과 아군의 모든 디버프 제거**
+                    `퓨리파이` - **짧은 순간 받는 피해 감소 50% / 70% / 99.9%[12]**
+                    `프라이데이` - **(사망 시) 15초간 모든 피해 증가 30%, 받는 피해 증가 20%**
+                    `매스커레이드` - **아군에게 20초간 효과 없는 디버프 2종 부여**
+                    `3각성 코어 릴리즈 (해방된 의지 : 코드 페일리스)` - **5초간 물리 방어력 감소 30%**
                     """);
 
     @Override
@@ -247,7 +288,14 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("노바 임퍼레이터", "nova")
                 .addOption("레버넌트", "revenant")
                 .build();
-
+        StringSelectMenu eve_line=StringSelectMenu.create("menu:eve")
+                .setPlaceholder("이브 전직 선택")
+                .setRequiredRange(1, 1)
+                .addOption("코드: 얼티메이트", "ultimate")
+                .addOption("코드: 에센시아", "esencia")
+                .addOption("코드: 사리엘", "sariel")
+                .addOption("코드: 안티테제", "antithese")
+                .build();
 
         if(event.getComponentId().equals("menu:character")) {
             if(get_value.equals("Elsword")){
@@ -321,6 +369,21 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("revenant")) {
                 get_hook.sendMessageEmbeds(raven_revenant.build()).queue();
+            }
+        }
+        if(event.getComponentId().equals("menu:eve")) {//이브 시너지
+            setEphemeral_true.queue();
+            if(get_value.equals("ultimate")) {
+                get_hook.sendMessageEmbeds(eve_ultimate.build()).queue();
+            }
+            if(get_value.equals("esencia")) {
+                get_hook.sendMessageEmbeds(eve_esencia.build()).queue();
+            }
+            if(get_value.equals("sariel")) {
+                get_hook.sendMessageEmbeds(eve_sariel.build()).queue();
+            }
+            if(get_value.equals("antithese")) {
+                get_hook.sendMessageEmbeds(eve_antithese.build()).queue();
             }
         }
     }

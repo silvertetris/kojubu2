@@ -90,10 +90,63 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     `현자의 돌` - **15초간 물리/마법 공격력 증가 10%, 8초10초간[4] 퀵 슬롯 아이템의 재사용 대기 시간 15초로 변경**
                     `아페이론` - **시전자 HP가 0이 될 시 주변 아군의 HP/MP를 5초동안 초당 20%씩 회복**""");
 
+    EmbedBuilder rena_wind_sneaker = new EmbedBuilder().setTitle("아네모스 (아네)")
+            .setAuthor("레나 1라인")
+            .setColor(Color.green)
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069198609754632252/EBA088EB82981-3_ED9484EBA19CEBAAA8EC8598_EC9DBCEB9FACEC8AA4ED8AB8.png?width=432&height=473")
+            .setDescription("""
+                    `아이레린나` - 30초간 공격력 증가 10%, 모든속도 증가 15%, 초당 MP 7% 회복
+                    `백 킥` - 10초간 공격력 감소 26%
+                    """);
+    EmbedBuilder rena_daybreaker = new EmbedBuilder().setTitle("데이브레이커 (데브)")
+            .setAuthor("레나 2라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069198667736690728/EB8DB0EC9DB4EBB88CEBA088EC9DB4ECBBA4.png?width=497&height=473")
+            .setColor(Color.green)
+            .setDescription("""
+                    `프리징 애로우, [체인지] 프리징 애로우` - 빙결 3.9초(각성 시 6.5초)[5]
+                    `낙인의 사격`- 10초간 추가 피해 10%, 받는 크리티컬 피해 증가 15%, 마법 방어력 감소 20% (낙인의 흔적과 중복되지 않음)
+                    `낙인의 흔적` - 10초간(타겟이 5 이상일 경우 20초간) 추가 피해 20%, 받는 크리티컬 피해 증가 15%, 마법 방어력 감소 25% (낙인의 사격과 중복되지 않음)
+                    """);
+    EmbedBuilder rena_twilight = new EmbedBuilder().setTitle("트와일라잇 (트와)")
+            .setAuthor("레나 3라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069198768047669288/3_EBA088EB8298_ED8AB8EC9980EC9DBCEB9DBCEC9E87.png?width=547&height=473")
+            .setColor(Color.green)
+            .setDescription("""
+                    `이보크` - 6초간 받는 피해 감소 40%, 물리 방어력 감소 40%
+                    `트래핑 애로우` - 펑거스, [체인지] 트래핑 애로우 - 펑거스 - 10초간 받는 피해 증가 20%
+                    `레이지 펑거스` - 구속 3.9초
+                    """);
+    EmbedBuilder rena_prophetess = new EmbedBuilder().setTitle("프로피티스 (프피)")
+            .setAuthor("레나 4라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069199031366062100/FXB5iltaAAAYD3H.png?width=412&height=473")
+            .setColor(Color.green)
+            .setDescription("""
+                    `리슨` - **랜덤하게 아군 MP 50 회복, 또는 특수 자원[특수자원] 20% 회복, 또는 둘 다 적용**
+                    `튜닝` - **약 5초간 아군의 디버프를 지속적으로 제거**
+                    `엠파시스` - **5초간 아군 슈퍼아머**
+                    `해방된 의지 : 테일 스피너` - **랜덤하게 중간보스 및 보스에게 입히는 데미지 증가 2% (최대 5중첩), 또는 중간보스 및 보스가 아닌 적에게 입히는 데미지 증가 2% (최대 5중첩) (발동 이후 영구 적용)**
+                    `리터러시 - [강인한 용기]` - **5초간 스킬 재사용 시간 가속화 1.5배**
+                    `리터러시 - [강렬한 의지]` - **20초간 마법 공격력 증가 15%**
+                    `리터러시 - [초월한 마음]` - **20초간 물리, 마법 방어력 증가 15%, 디버프 1종 제거**
+                    `리터러시 - [강인한 울림]` - **30초간 크리티컬 확률 증가 20%**
+                    `리터러시 - [강렬한 울림]` - **30초간 보스에게 입는 피해 감소 15%**
+                    `리터러시 - [초월한 울림]` - **30초간 최대 HP의 10%만큼 보호막 생성 및 모든 피해량 증가 10%**
+                    `변덕스러운 축복` - 아래의 효과 중 랜덤하게 2종 영구 적용 (새로운 축복으로 갱신 가능)
+                    ```3단계 이상 마스터 스킬 사용 시 물리 공격력 1% 증가 (최대 10중첩)
+                    3단계 이상 마스터 스킬 사용 시 마법 공격력 1% 증가 (최대 10중첩)
+                    아군 부활 시 살아있는 아군의 스페셜 액티브 스킬 1개의 재사용 대기 시간 초기화
+                    중간보스, 보스 몬스터를 아군이 처치 시 하이퍼 액티브 데미지 2% 증가 (최대 5중첩)
+                    스페셜 액티브 사용 시 최대 MP의 10% MP 회복
+                    액티브 스킬 사용 시 동작속도 1% 증가 (최대 10중첩)
+                    마스터 스킬 사용 시 물리, 마법 방어력 1% 증가 (최대 10중첩)
+                    퀵슬롯 아이템 사용 시 회복 아이템 효과 1% 증가 (최대 10중첩)
+                    각성 상태일 경우 최대 MP 40 증가```
+                    """);
+
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
-        if (!event.getName().equals("elsword_synergy")) return;
+        if (!event.getName().equals("엘소드_시너지")) return;
 
         StringSelectMenu character = StringSelectMenu.create("menu:character")
                 .setPlaceholder("캐릭터 선택") // shows the placeholder indicating what this menu is for
@@ -123,7 +176,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
     @Override
     public void onGenericSelectMenuInteraction(GenericSelectMenuInteractionEvent event) {
         StringSelectMenu elsword_line= StringSelectMenu.create("menu:elsword")
-                .setPlaceholder("라인 선택")
+                .setPlaceholder("엘소드 라인 선택")
                 .setRequiredRange(1, 1)
                 .addOption("나이트 엠퍼러", "knight_emperor")
                 .addOption("룬 마스터", "rune_master")
@@ -131,12 +184,20 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("제네시스", "genesis")
                 .build();
         StringSelectMenu aisha_line= StringSelectMenu.create("menu:aisha")
-                .setPlaceholder("라인 선택")
+                .setPlaceholder("아이샤 라인 선택")
                 .setRequiredRange(1, 1)
                 .addOption("에테르 세이지", "aether_sage")
                 .addOption("오즈 소서러", "oz")
                 .addOption("메타모르피", "metamorphy")
                 .addOption("로드 아조트", "lord_azoth")
+                .build();
+        StringSelectMenu rena_line = StringSelectMenu.create("menu:rena")
+                .setPlaceholder("레나 라인 선택")
+                .setRequiredRange(1, 1)
+                .addOption("아네모스", "wind_sneaker")
+                .addOption("데이브레이커", "daybreaker")
+                .addOption("트와일라잇", "twilight")
+                .addOption("프로피티스", "prophetess")
                 .build();
 
 
@@ -146,6 +207,9 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(event.getValues().get(0).equals("Aisha")){
                 event.deferReply().setEphemeral(true).addActionRow(aisha_line).queue();
+            }
+            if(event.getValues().get(0).equals("Rena")) {
+                event.deferReply().setEphemeral(true).addActionRow(rena_line).queue();
             }
         }
         if(event.getComponentId().equals("menu:elsword")) { //엘소드 시너지
@@ -163,7 +227,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 event.getHook().sendMessageEmbeds(elsword_genesis.build()).queue();
             }
         }
-        if(event.getComponentId().equals("menu:aisha")) { //엘소드 시너지
+        if(event.getComponentId().equals("menu:aisha")) { //아이샤 시너지
             event.deferReply().setEphemeral(true).queue();
             if(event.getValues().get(0).equals("aether_sage")) {
                 event.getHook().sendMessageEmbeds(aisha_aether_sage.build()).queue();
@@ -176,6 +240,21 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(event.getValues().get(0).equals("lord_azoth")) {
                 event.getHook().sendMessageEmbeds(aisha_Lord_Azoth.build()).queue();
+            }
+        }
+        if(event.getComponentId().equals("menu:rena")) {
+            event.deferReply().setEphemeral(true).queue();
+            if(event.getValues().get(0).equals("wind_sneaker")) {
+                event.getHook().sendMessageEmbeds(rena_wind_sneaker.build()).queue();
+            }
+            if(event.getValues().get(0).equals("daybreaker")) {
+                event.getHook().sendMessageEmbeds(rena_daybreaker.build()).queue();
+            }
+            if(event.getValues().get(0).equals("twilight")) {
+                event.getHook().sendMessageEmbeds(rena_twilight.build()).queue();
+            }
+            if(event.getValues().get(0).equals("prophetess")) {
+                event.getHook().sendMessageEmbeds(rena_prophetess.build()).queue();
             }
         }
     }

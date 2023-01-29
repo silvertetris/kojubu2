@@ -18,7 +18,7 @@ public class helpInfo extends ListenerAdapter {
         if (command.equals("help")) {
             event.deferReply().setEphemeral(true).queue();
             event.getHook().sendMessage("DM으로 보냄!").queue();
-            event.getMember().getUser().openPrivateChannel().queue(privateChannel ->
+            event.getUser().openPrivateChannel().queue(privateChannel ->
             {
                 privateChannel.sendMessage("``" + membertag + "님! 도움말 안내입니다!``\n").addEmbeds(helpEmbed.build()).queue();
             });//sendMessageEmbeds needs parameter type messageEmbed meanwhile helpEmbed type is EmbedBuilder

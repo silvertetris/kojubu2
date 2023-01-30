@@ -69,8 +69,6 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         try {
-            String GuildName = event.getGuild().getName();
-            String ChannelName = event.getChannel().getName();
             super.onMessageReceived(event);
             if(event.getGuild().getId().equals("1005135110015832174")) {
                 String beakma=event.getJDA().retrieveUserById("866160354455060492").complete().getAsMention();

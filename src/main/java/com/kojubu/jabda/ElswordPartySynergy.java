@@ -296,6 +296,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     `제압 : 기` - **8초간 모든 방어력 감소 35%**
                     `화간접무 (3단계 이상)` - **5초간 받는 피해 증가 5%**
                     """);
+
     EmbedBuilder Ara_3line = new EmbedBuilder().setTitle("대라")
             .setAuthor("아라 3라인")
             .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069228606938689576/img_pop_c7.png?width=579&height=473")
@@ -326,7 +327,53 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     `한빙호기` - **빙결 5초**
                     `천구성, 현천 4식 : 막, 성화, 변환 (합일)` - **30초간 모든 스킬 데미지 0.2~20% 증가**
                     """);
-
+    EmbedBuilder elesis_1line=new EmbedBuilder().setTitle("엠파이어 소드 (엠소)")
+            .setAuthor("엘리시스 1라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069459130827423754/25EC259725A025EC2586258C.png?width=504&height=473")
+            .setColor(Color.red)
+            .setDescription("""
+                    `파워 브레이크` - **8초간 모든 방어력 감소 24%, 모든 속성 저항 감소 60(기가 블래스트와 중복되지 않음)**
+                    `기가 블래스트` - **8초간 모든 방어력 감소 30%, 모든 속성 저항 감소 100(파워 브레이크와 중복되지 않음)**
+                    `도발` - **9초간 받는 피해 증가 20%, 피격 대상 공격력 증가 10%**
+                    `[체인지]도발` - **6초간 받는 피해 증가 20%, 피격 대상 공격력 증가 10%**
+                    `워 프렐류드` - **12초간 커맨드/액티브/스페셜 액티브 데미지 증가 20%, 디버프 면역 상태**
+                    `[체인지]워 프렐류드` - **36초간 스페셜 액티브 데미지 증가 15%, 받는 피해 감소 15%**
+                    `기사단장의 위엄` - **크리티컬, 극대화, 동작속도, 추가 데미지 1.5% * (파티원 수)(최대 4중첩)**
+                    """);
+    EmbedBuilder elesis_2line=new EmbedBuilder().setTitle("플레임 로드 (플로)")
+            .setAuthor("엘리시스 2라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069459165774356510/25ED2594258C25EB25A1259C.png")
+            .setColor(Color.red)
+            .setDescription("""
+                    `불꽃의 낙인` - 8810초간 마법 방어력 감소 10% * 5(마력의 사슬과 중복되지 않음)**          
+                    """);
+    EmbedBuilder elesis_3line=new EmbedBuilder().setTitle("블러디 퀸 (블퀸)")
+            .setAuthor("엘리시스 3라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069459193775542365/25EB25B8259425ED258025B8.png?width=473&height=473")
+            .setColor(Color.red)
+            .setDescription("""
+                    `인젝션 스티그마` - **7.98초간 공격력 감소 2% * 20**
+                    `블러드 폴즈` - **5초간 모든 속성 저항 감소 300**
+                    """);
+    EmbedBuilder elesis_4line=new EmbedBuilder().setTitle("아드레스티아 (아드)")
+            .setAuthor("엘리시스 4라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069459690821517382/common.png?width=532&height=473")
+            .setColor(Color.red)
+            .setDescription("""
+                    `아웃버스트` - **15초간 받는 마법 피해 증가 10%**
+                    `엘리미네이션` - **10초간 마법 방어력 감소 20%**
+                    `언브로큰 빌리프` - **체력이 30% 이하가 되면 체력 100% 회복**
+                    `업사이드 다운` - **파티원 디버프 1종 제거 및 그 외 디버프 지속시간 감소 20%**
+                    `카타르시스` - **10초간 크리티컬로 입는 피해 증가 10%**
+                    `[디비누수 마누스] 섬멸 스킬 3회 사용 (자각)` - **12초간 모든 공격 방어력 무시 5%**
+                    `[디비누수 마누스] 질풍 스킬 3회 사용 (자각)` - **12초간 스페셜 액티브 재사용 시간 감소 10%**
+                    `파티원이 디버프 총합 20회 적용 (잠재의식)` - **20초간 물리, 마법 방어력 증가 20%**
+                    ``패스브레이커`` - **중간보스, 보스 몬스터의 체력이 일정수치 이하일 때 다음 효과 적용**
+                    ```1단계 - 몬스터 체력 100% : 동작속도 증가 10%
+                    2단계 - 몬스터 체력 50% : 동작속도 증가 10%, 마법 공격력 증가 10%
+                    3단계 - 몬스터 체력 30% : 동작속도 증가 10%, 마법 공격력 증가 10%, 중간보스 및 보스 몬스터에게 입히는 데미지 증가 10%```
+                                        
+                    """);
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
@@ -412,12 +459,28 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .build();
         StringSelectMenu ara_line=StringSelectMenu.create("menu:ara")
                 .setPlaceholder("아라 전직 선택")
-                .setRequiredRange(1,1,)
+                .setRequiredRange(1,1)
                 .addOption("비천", "ara_1line")
                 .addOption("범황", "ara_2line")
                 .addOption("대라", "ara_3line")
                 .addOption("일천", "ara_4line")
-                .build();;
+                .build();
+        StringSelectMenu elesis_line=StringSelectMenu.create("menu:elesis")
+                .setPlaceholder("엘리시스 전직 선택")
+                .setRequiredRange(1,1)
+                .addOption("엠파이어 소드", "elesis_1line")
+                .addOption("플레임 로드", "elesis_2line")
+                .addOption("블러디 퀸", "elesis_3line")
+                .addOption("아드레스티아", "elesis_4line")
+                .build();
+        StringSelectMenu add_line=StringSelectMenu.create("menu:Add")
+                .setPlaceholder("애드 전직 선택")
+                .setRequiredRange(1,1)
+                .addOption("둠 브링어", "add_1line")
+                .addOption("도미네이터", "add_2line")
+                .addOption("매드 패러독스", "add_3line")
+                .addOption("오버마인드", "add_4line")
+                .build();
         if(event.getComponentId().equals("menu:character")) {
             if(get_value.equals("Elsword")){
                 setEphemeral_true.addActionRow(elsword_line).queue();
@@ -439,6 +502,9 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("Ara")) {
                 setEphemeral_true.addActionRow(ara_line).queue();
+            }
+            if(get_value.equals("Elesis")) {
+                setEphemeral_true.addActionRow(elesis_line).queue();
             }
         }
         if(event.getComponentId().equals("menu:elsword")) { //엘소드 시너지
@@ -544,6 +610,20 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("ara_4line")) {
                 get_hook.sendMessageEmbeds(Ara_4line.build()).queue();
+            }
+        }
+        if(event.getComponentId().equals("menu:elesis")) {
+            if(get_value.equals("elesis_1line")){
+                get_hook.sendMessageEmbeds(elesis_1line.build()).queue();
+            }
+            if(get_value.equals("elesis_2line")) {
+                get_hook.sendMessageEmbeds(elesis_2line.build()).queue();
+            }
+            if(get_value.equals("elesis_3line")) {
+                get_hook.sendMessageEmbeds(elesis_3line.build()).queue();
+            }
+            if(get_value.equals("elesis_4line")) {
+                get_hook.sendMessageEmbeds(elesis_4line.build()).queue();
             }
         }
     }

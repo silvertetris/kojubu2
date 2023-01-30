@@ -26,7 +26,7 @@ public class Kojububot {
     public Kojububot() throws LoginException {
         String token = "OTczOTMwOTA5OTY1MzczNDQy.GXpDvc.FQhP0pJiNwFmj4sMoRS3plXMk9yp6pmCpckEDw";
         DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(token);
-        builder.setActivity(Activity.listening("Hi there!"));
+        builder.setActivity(Activity.listening("안뇽~"));
         builder.setStatus(OnlineStatus.ONLINE);
         builder.addEventListeners(new GenericListenerAdapterEvents(),
                 new KojubuCommands(), new slashcommandinfo(), new helpInfo(), new GuildChannelLogs(), new ElswordPartySynergy());

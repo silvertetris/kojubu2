@@ -468,6 +468,48 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     `블랭킷 어쏘러티` - **영역 내 아군의 디버프 제거, 5초간 초당 HP 5~16.5%씩, MP 10~22% 회복, 짧은 순간 받는 피해 감소 70%**
                     `이터널 데메르시오` - **30초 내 사망 시 부활**
                     """);
+    EmbedBuilder rose_1line=new EmbedBuilder().setTitle("템페스트 버스터 (템버)")
+            .setAuthor("로제 1라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069481362337304576/25ED2585259C25EB25B22584.png?width=375&height=473")
+            .setColor(Color.yellow)
+            .setDescription("""
+                    `[체인지]FM-92 MK2 랜서 SW` - **5초간 모든 방어력 감소 65%**
+                    `팜페로 부스터` - **빙결 2.8초 연타**
+                    `오버 스트라이크 발동 (해방된 의지 : 스톰 트루퍼)` - **시전자 제외 20초간 물리 공격력 증가 20%**
+                    `이글스 레이더` - **10초간 크리티컬로 피해를 받을 확률 증가 20%**
+                    `레이저 관련 스킬 (중화기 특화)` - **5초간 받는 피해 증가 10%**
+                    """);
+    EmbedBuilder rose_2line=new EmbedBuilder().setTitle("블랙 매서커 (블매)")
+            .setAuthor("로제 2라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069481371761917952/EBB894EBA7A4.png?width=440&height=473")
+            .setColor(Color.yellow)
+            .setDescription("""
+                    `킬 포인트` - **2초간 모든 방어력 감소 30% + 3% * (타격당한 적 개체 수) (최대 5중첩), 정지 2초**
+                    `쏘우 블레이드` - **5초간 모든 방어력 감소 25%**
+                    `광란` - **버프 발동 시 10초간 크리티컬 데미지 10%**
+                    `표적 탐색` - **적 조우 시 10초간 대상에게 주는 모든 공격이 크리티컬로 발동, 크리티컬로 받는 피해 증가 10%**
+                    """);
+    EmbedBuilder rose_3line=new EmbedBuilder().setTitle("미네르바 (미네)")
+            .setAuthor("로제 3라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069481385007517737/EBAFB8EB84A4.png?width=481&height=473")
+            .setColor(Color.yellow)
+            .setDescription("""
+                    `G-18C 빙결류탄, [체인지] G-18C 빙결류탄` - **빙결 3초 (4회 반복 가능)**
+                    `[체인지]팬텀 샷` - **15초간 모든 속성 저항 감소 50**
+                    `에인헤야르` - **아군 스페셜 액티브 스킬 재사용 시간 4초 감소**
+                    `류탄 3종 (류탄 강화)` - **5초간 모든 방어력 감소 45%**
+                    """);
+    EmbedBuilder rose_4line=new EmbedBuilder().setTitle("프라임 오퍼레이터 (프오)")
+            .setAuthor("로제 4라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069481399205236806/ED9484EC98A4.png?width=492&height=473")
+            .setColor(Color.yellow)
+            .setDescription("""
+                    `KS-83` - **10초간 마법 방어력 감소 10% * 3**
+                    `[체인지]G-1 코로나` - **5초간 모든 방어력 감소 30%**
+                    `아머드 템페스트` - **범위 내 아군 슈퍼아머 5초**
+                    `마그네틱 가더` - **24초간 마법 공격력 10% 증가, 데미지감소 10% 증가, 스페셜 액티브 스킬 재사용 시간 가속화 1.2배**
+                    `자동 권총 커맨드, 집중타격 (메카 컨트롤)` - **10초간 모든 방어력 감소 40%
+                    """);
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
@@ -583,6 +625,15 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("디앙겔리온", "lu_ciel_3line")
                 .addOption("데메르시오", "lu_ciel_4line")
                 .build();
+        StringSelectMenu rose_line=StringSelectMenu.create("menu:rose")
+                .setPlaceholder("로제 전직 선택")
+                .setRequiredRange(1,1)
+                .addOption("템페스트 버스터", "rose_1line")
+                .addOption("블랙 매서커", "rose_2line")
+                .addOption("메니르바", "rose_3line")
+                .addOption("프라임 오퍼레이터", "rose_4line")
+                .build();
+
         if(event.getComponentId().equals("menu:character")) {
             if(get_value.equals("Elsword")){
                 setEphemeral_true.addActionRow(elsword_line).queue();
@@ -763,6 +814,21 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("lu_ciel_4line")) {
                 get_hook.sendMessageEmbeds(lu_ciel_4line.build()).queue();
+            }
+        }
+        if(event.getComponentId().equals("menu:rose")) {
+            setEphemeral_true.queue();
+            if(get_value.equals("rose_1line")) {
+                get_hook.sendMessageEmbeds(rose_1line.build()).queue();
+            }
+            if(get_value.equals("rose_2line")) {
+                get_hook.sendMessageEmbeds(rose_2line.build()).queue();
+            }
+            if(get_value.equals("rose_3line")) {
+                get_hook.sendMessageEmbeds(rose_3line.build()).queue();
+            }
+            if(get_value.equals("rose_4line")) {
+                get_hook.sendMessageEmbeds(rose_4line.build()).queue();
             }
         }
     }

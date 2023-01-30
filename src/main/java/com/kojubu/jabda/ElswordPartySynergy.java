@@ -425,6 +425,49 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     4단계 - 61~80 중첩: 타격시 MP 회복량 5% 감소, 중첩당 각성 충전 속도(DP 회복량) 5% 감소, 중첩당 크리티컬 확률 5% 감소, 중첩당 극대화 확률 0.25% 감소 (최대 5%)
                     5단계 - 81~100 중첩: 타격시 MP 회복량 5% 감소, 중첩당 각성 충전 속도(DP 회복량) 5% 감소, 중첩당 크리티컬 확률 5% 감소, 중첩당 극대화 확률 5% 감소, 중첩당 물리/마법 공격력 2.5% 감소 (최대 50%)```
                     """);
+    EmbedBuilder lu_ciel_1line = new EmbedBuilder().setTitle("카타스트로피 (카타)")
+            .setAuthor("루시엘 1라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069475077164388362/25EC25B925B425ED25832580.png?width=402&height=473")
+            .setColor(Color.blue)
+            .setDescription("""
+                    `오리악스의 권능` - **15.6초간 스킬 재사용 시간 가속화 1.5배, 슈퍼아머**
+                    `슈프림 퍼니시먼트` - **8초간 모든 방어력 감소 10%**
+                    `엄습하는 공포` - **공격 시 7초간 대상 공격력 감소 2% * 5**
+                    """);
+    EmbedBuilder lu_ciel_2line = new EmbedBuilder().setTitle("이노센트 (이노)")
+            .setAuthor("루시엘 2라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069475088677740674/EC9DB4EB85B8.png?width=464&height=473")
+            .setColor(Color.blue)
+            .setDescription("""
+                    `섀도우, [체인지] 섀도우` - **3.9초간 마법 공격력 및 방어력 감소 31%**
+                    `콤비네이션 스킬 (이노센트 스타터)` - **15초간 이동속도, 동작속도 증가 10%, 마법 공격력 증가 12%**
+                    """);
+    EmbedBuilder lu_ciel_3line = new EmbedBuilder().setTitle("디앙겔리온 (디앙)")
+            .setAuthor("루시엘 3라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069475102401511505/EB9494EC9599.png?width=626&height=473")
+            .setColor(Color.blue)
+            .setDescription("""
+                    `시니스터 마인드` - **10초간 모든 방어력 감소 33%**
+                    `하우레스의 정원` - **약 50초간 모든 방어력 감소 15%**
+                    `[체인지]하우레스의 정원` - **12초간 모든 방어력 감소 15%**
+                    `브루탈 러시` - **7초간 모든 방어력 감소 20%**
+                    `모탈 피어` - **10초간 받는 피해 증가 20%**
+                    `[체인지]알터 오브 이블` - **13초간 받는 피해 증가 20%**
+                    `어비스 스나이핑` - **석화 4초(빙결 취급, 단타)**
+                    """);
+    EmbedBuilder lu_ciel_4line = new EmbedBuilder().setTitle("데메르시오 (데메)")
+            .setAuthor("루시엘 4라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069475304915083274/c3_on.png?width=519&height=473")
+            .setColor(Color.blue)
+            .setDescription("""
+                    `하트리스 이드` - **19.5초간 강렬한, 초월한 스킬 데미지 증가 10%, 모든 속성 저항 감소 150**
+                    `어비스 스캐터` - **8초간 받는 데미지 감소 15~27.5%**
+                    `루쓰러스 스틱` - **빙결 4.5초**
+                    `아몰퍼스` - **12초간 모든 스킬 재사용 시간 가속화 1.5배**
+                    `인퍼널 핸즈, [체인지] 인퍼널 핸즈` - **9초간 물리/마법 방어력 감소 20%, 받는 크리티컬 데미지 증가 10%**
+                    `블랭킷 어쏘러티` - **영역 내 아군의 디버프 제거, 5초간 초당 HP 5~16.5%씩, MP 10~22% 회복, 짧은 순간 받는 피해 감소 70%**
+                    `이터널 데메르시오` - **30초 내 사망 시 부활**
+                    """);
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
@@ -532,6 +575,14 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("매드 패러독스", "add_3line")
                 .addOption("오버마인드", "add_4line")
                 .build();
+        StringSelectMenu lu_ciel_line=StringSelectMenu.create("menu:lu_ciel")
+                .setPlaceholder("루시엘 전직 선택")
+                .setRequiredRange(1,1)
+                .addOption("카타스트로피", "lu_ciel_1line")
+                .addOption("이노센트", "lu_ciel_2line")
+                .addOption("디앙겔리온", "lu_ciel_3line")
+                .addOption("데메르시오", "lu_ciel_4line")
+                .build();
         if(event.getComponentId().equals("menu:character")) {
             if(get_value.equals("Elsword")){
                 setEphemeral_true.addActionRow(elsword_line).queue();
@@ -559,6 +610,9 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("Add")) {
                 setEphemeral_true.addActionRow(add_line).queue();
+            }
+            if(get_value.equals("Lu_Ciel")) {
+                setEphemeral_true.addActionRow(lu_ciel_line).queue();
             }
         }
         if(event.getComponentId().equals("menu:elsword")) { //엘소드 시너지
@@ -694,6 +748,21 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("add_4line")) {
                 get_hook.sendMessageEmbeds(add_4line.build()).queue();
+            }
+        }
+        if(event.getComponentId().equals("menu:lu_ciel")) { //루시엘 시너지
+            setEphemeral_true.queue();
+            if(get_value.equals("lu_ciel_1line")) {
+                get_hook.sendMessageEmbeds(lu_ciel_1line.build()).queue();
+            }
+            if(get_value.equals("lu_ciel_2line")) {
+                get_hook.sendMessageEmbeds(lu_ciel_2line.build()).queue();
+            }
+            if(get_value.equals("lu_ciel_3line")) {
+                get_hook.sendMessageEmbeds(lu_ciel_3line.build()).queue();
+            }
+            if(get_value.equals("lu_ciel_4line")) {
+                get_hook.sendMessageEmbeds(lu_ciel_4line.build()).queue();
             }
         }
     }

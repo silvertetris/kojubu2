@@ -510,6 +510,37 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     `마그네틱 가더` - **24초간 마법 공격력 10% 증가, 데미지감소 10% 증가, 스페셜 액티브 스킬 재사용 시간 가속화 1.2배**
                     `자동 권총 커맨드, 집중타격 (메카 컨트롤)` - **10초간 모든 방어력 감소 40%
                     """);
+    EmbedBuilder ain_1line = new EmbedBuilder().setTitle("리히터")
+            .setAuthor("아인 1라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069490354077831178/EBA6ACED9E88.png?width=385&height=473")
+            .setColor(new Color(102, 255, 178))
+            .setDescription("""
+                    `아우투수게스티온` - **26초간 아군 최대 HP 1.3배, 최대 MP 1.2배, 각성 충전 속도 1.2배 증가**
+                    """);
+    EmbedBuilder ain_2line = new EmbedBuilder().setTitle("블루헨")
+            .setAuthor("아인 2라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069490376588656700/EBB894EBA3A8ED97A8.png?width=490&height=473")
+            .setColor(new Color(102, 255, 178))
+            .setDescription("""
+                    `버트라운 멜로디` - **10초간 마법 공격력 증가 12%, 받는 피해 감소 24%**
+                    `빈트 아인팔런` - **8초간 모든 속성 저항 감소 30 * 5**
+                    `[체인지]빈트호제` - **7초간 스킬 쿨타임 가속 1.3배**
+                    `에델 리드 - 빌레` - **5초간 받는 피해 증가 5%**
+                    `자츠 아우로라 - 빌레` - **빙결 5초**
+                    `[체인지]레퀴엠 - 빌레` - **빙결 5초**
+                    `블랏트 블루메 - 무트` - **11초간 크리티컬 데미지 증가 20%**
+                    `블랏트 블루메 - 라인` - **11초간 매 초 HP, MP 1% 회복 (40만 전투력 당 +1% (최대 15%))**
+                    `블랏트 블루메 - 빌레` - **11초간 모든 방어력 감소 20%**
+                    `[권능 : 순환마법] 활성화 (선한 영향력)` - **5초간 물리/마법 공격력 증가 10%(무트), MP 회수율 증가 2배(라인), MP 회수율 증가 2배(라인), 모든 속도 증가 10%(빌레), 시전자 제외 크리티컬/극대화/추가 데미지/모든 속도/데미지 감소/각성 충전 속도/각성 지속 시간/타격, 피격 시 MP 회복량 능력치 상승 5%(순환)**
+                    """);
+    EmbedBuilder ain_3line = new EmbedBuilder().setTitle("헤르셔")
+            .setAuthor("아인 3라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069490394414448650/ED97A4EBA5B4EC8594.png?width=399&height=473")
+            .setColor(new Color(102, 255, 178))
+            .setDescription("""
+                    `가이스트 헤르샤프트` - **6.5초간 모든 방어력 감소 25%
+                    `헤니르 개방 스킬 (혼돈의 결계)` - **5초간 자신 제외 크리티컬 데미지 증가 10%, 모든 속성 저항 감소 100**
+                    """);
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
@@ -633,6 +664,13 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("메니르바", "rose_3line")
                 .addOption("프라임 오퍼레이터", "rose_4line")
                 .build();
+        StringSelectMenu ain_line=StringSelectMenu.create("menu:ain")
+                .setPlaceholder("아인 전직 선택")
+                .setRequiredRange(1,1)
+                .addOption("리히터", "ain_1line")
+                .addOption("블루헨", "ain_2line")
+                .addOption("헤르셔", "ain_3line")
+                .build();
 
         if(event.getComponentId().equals("menu:character")) {
             if(get_value.equals("Elsword")){
@@ -664,6 +702,12 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("Lu_Ciel")) {
                 setEphemeral_true.addActionRow(lu_ciel_line).queue();
+            }
+            if(get_value.equals("Rose")) {
+                setEphemeral_true.addActionRow(rose_line).queue();
+            }
+            if(get_value.equals("Ain")) {
+                setEphemeral_true.addActionRow(ain_line).queue();
             }
         }
         if(event.getComponentId().equals("menu:elsword")) { //엘소드 시너지
@@ -829,6 +873,18 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("rose_4line")) {
                 get_hook.sendMessageEmbeds(rose_4line.build()).queue();
+            }
+        }
+        if(event.getComponentId().equals("menu:ain")) {
+            setEphemeral_true.queue();
+            if(get_value.equals("ain_1line")) {
+                get_hook.sendMessageEmbeds(ain_1line.build()).queue();
+            }
+            if(get_value.equals("ain_2line")) {
+                get_hook.sendMessageEmbeds(ain_2line.build()).queue();
+            }
+            if(get_value.equals("ain_3line")) {
+                get_hook.sendMessageEmbeds(ain_3line.build()).queue();
             }
         }
     }

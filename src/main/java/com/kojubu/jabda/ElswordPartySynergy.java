@@ -538,8 +538,51 @@ public class ElswordPartySynergy extends ListenerAdapter{
             .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069490394414448650/ED97A4EBA5B4EC8594.png?width=399&height=473")
             .setColor(new Color(102, 255, 178))
             .setDescription("""
-                    `가이스트 헤르샤프트` - **6.5초간 모든 방어력 감소 25%
+                    `가이스트 헤르샤프트` - **6.5초간 모든 방어력 감소 25%**
                     `헤니르 개방 스킬 (혼돈의 결계)` - **5초간 자신 제외 크리티컬 데미지 증가 10%, 모든 속성 저항 감소 100**
+                    """);
+
+    EmbedBuilder laby_1line=new EmbedBuilder().setTitle("이터니티 위너 (이위)")
+            .setAuthor("라비 1라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069493294494646303/25EC259D25B425EC259C2584.png?width=399&height=473")
+            .setColor(Color.pink)
+            .setDescription("""
+                    `나비밤` - **주변 아군의 디버프 2개 제거**
+                    `만능 주머니샤` - **5초간 받는 피해 증가 30%**
+                    `각성 스킬 (해방된 의지 : 럼블 펌)` - **10초간 모든 방어력 감소 8%, 모든 속성 저항 감소 50**
+                    `마이트 라비` - **구슬 획득한 아군 1명의   HP, MP 15% 회복 (커맨드 타격 성공 시 구슬 생성)**
+                    """);
+    EmbedBuilder laby_2line=new EmbedBuilder().setTitle("라디언트 소울 (라소)")
+            .setAuthor("라비 2라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069493307106926642/EB9DBCEC868C.png?width=487&height=473")
+            .setColor(Color.pink)
+            .setDescription("""
+                    `밀키 웨이, [체인지]밀키 웨이` - **10초간 모든 공격력 감소 20%, 방어력 감소 40%*
+                    `데굴데굴` - **10초간 모든 속성 저항 감소 150***
+                    `잡았다!` - **빙결 4초
+                    `여우비` - **3회에 걸쳐 HP, MP 2% 회복 (40만 전투력 당 +2% (최대 30%))**
+                    `바람이 불어, [체인지] 바람이 불어` - **20초간 이동속도/점프속도 증가 20%, 동작속도 증가 10%**
+                    `리프랙션` - **10초간 받는 피해 감소 30%**
+                    `안녕, 라비 (너와 나, 내딛는 발걸음)` - **모든 스킬 재사용 시간 초기화, 20초간 모든 스킬 데미지 20%, 타격/피격 MP 회복률 증가 50%, 중간보스/보스뎀증 15% 증가**
+                    """);
+    EmbedBuilder laby_3line=new EmbedBuilder().setTitle("니샤 라비린스 (니샤)")
+            .setAuthor("라비 3라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069493334613180416/EB8B88EC83A4.png?width=487&height=473")
+            .setColor(Color.pink)
+            .setDescription("""
+                    `비비~` - **10초간 물리 방어력 감소 40%**
+                    `니샤 파워 - 포코` - **20초간 보스 몬스터에게 받는 피해 10% 감소**
+                    `니샤 파워 - 우키` - **20초간 물리 공격력 20% 증가**
+                    `니샤 파워 - 즈뮤` - **20초간 보스 몬스터에게 주는 피해 10% 증가**
+                    `니샤 파워 - 비비` - **주변 아군 HP 초당 12% 회복(3초 지속)**
+                    `악몽` - **구속 1.5초**
+                    """);
+    EmbedBuilder laby_4line=new EmbedBuilder().setTitle("트윈즈 피카로 (트피)")
+            .setAuthor("라비 4라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069493482974085150/c90_m.png?width=347&height=473")
+            .setColor(Color.pink)
+            .setDescription("""
+                    `으르렁` - **아군에게 2초간 효과 없는 디버프 1종 부여**
                     """);
 
     @Override
@@ -671,6 +714,14 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("블루헨", "ain_2line")
                 .addOption("헤르셔", "ain_3line")
                 .build();
+        StringSelectMenu laby_line=StringSelectMenu.create("menu:laby")
+                .setPlaceholder("라비 전직 선택")
+                .setRequiredRange(1,1)
+                .addOption("이터니티 위너", "laby_1line")
+                .addOption("라디언트 소울", "laby_2line")
+                .addOption("니샤 라비린스", "laby_3line")
+                .addOption("트윈즈 피카로", "laby_4line")
+                .build();
 
         if(event.getComponentId().equals("menu:character")) {
             if(get_value.equals("Elsword")){
@@ -708,6 +759,9 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("Ain")) {
                 setEphemeral_true.addActionRow(ain_line).queue();
+            }
+            if(get_value.equals("Laby")) {
+                setEphemeral_true.addActionRow(laby_line).queue();
             }
         }
         if(event.getComponentId().equals("menu:elsword")) { //엘소드 시너지
@@ -860,7 +914,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 get_hook.sendMessageEmbeds(lu_ciel_4line.build()).queue();
             }
         }
-        if(event.getComponentId().equals("menu:rose")) {
+        if(event.getComponentId().equals("menu:rose")) {//로제 시너지
             setEphemeral_true.queue();
             if(get_value.equals("rose_1line")) {
                 get_hook.sendMessageEmbeds(rose_1line.build()).queue();
@@ -875,7 +929,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 get_hook.sendMessageEmbeds(rose_4line.build()).queue();
             }
         }
-        if(event.getComponentId().equals("menu:ain")) {
+        if(event.getComponentId().equals("menu:ain")) {//아인 시너지
             setEphemeral_true.queue();
             if(get_value.equals("ain_1line")) {
                 get_hook.sendMessageEmbeds(ain_1line.build()).queue();
@@ -885,6 +939,21 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("ain_3line")) {
                 get_hook.sendMessageEmbeds(ain_3line.build()).queue();
+            }
+        }
+        if(event.getComponentId().equals("menu:laby")) {
+            setEphemeral_true.queue();
+            if(get_value.equals("laby_1line")) {
+                get_hook.sendMessageEmbeds(laby_1line.build()).queue();
+            }
+            if(get_value.equals("laby_2line")) {
+                get_hook.sendMessageEmbeds(laby_2line.build()).queue();
+            }
+            if(get_value.equals("laby_3line")) {
+                get_hook.sendMessageEmbeds(laby_3line.build()).queue();
+            }
+            if(get_value.equals("laby_4lineL")) {
+                get_hook.sendMessageEmbeds(laby_4line.build()).queue();
             }
         }
     }

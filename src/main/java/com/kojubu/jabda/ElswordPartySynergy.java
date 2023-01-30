@@ -374,6 +374,57 @@ public class ElswordPartySynergy extends ListenerAdapter{
                     3단계 - 몬스터 체력 30% : 동작속도 증가 10%, 마법 공격력 증가 10%, 중간보스 및 보스 몬스터에게 입히는 데미지 증가 10%```
                                         
                     """);
+    EmbedBuilder add_1line = new EmbedBuilder().setTitle("둠 브링어 (둠브)")
+            .setAuthor("애드 1라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069464717220925450/EC95A0EB939C1-3_ED9484EBA19CEBAAA8EC8598EC9DBCEB9FACEC8AA4ED8AB8.png?width=460&height=473")
+            .setColor(new Color(127, 0 ,255))
+            .setDescription("""
+                    `[체인지]EMP 쇼크` - **공간 유지 중 1회에 한하여 스페셜 액티브 스킬 재사용 시간 5초 감소**
+                    """);
+    EmbedBuilder add_2line = new EmbedBuilder().setTitle("도미네이터 (도미)")
+            .setAuthor("애드 2라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069465083790495795/25EB258F258425EB25AF25B8.png?width=446&height=473")
+            .setColor(new Color(127, 0 ,255))
+            .setDescription("""
+                    `인스톨 - 드론 액티베이터` - **14.5초간 모든 방어력 감소 21.5%**
+                    `인스톨 - 제로 켈빈 제너레이터` - 10초간 받는 피해 증가 19.5%, 빙결 5초**
+                    `포스 필드` - **20초간 물리 공격력 증가 13.8%, 받는 피해 감소 13.8%**
+                    `[체인지]포스 필드` - **10초간 물리 공격력 증가 11.5%, 크리티컬, 극대화, 크리티컬 데미지 11.5%, 각성 충전 속도 증가 34.5%**
+                    """);
+    EmbedBuilder add_3line = new EmbedBuilder().setTitle("매드 패러독스 (매패)")
+            .setAuthor("애드 3라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069465188417425408/25EB25A725A425ED258C25A825EA25B0258125EC258425B1.png?width=490&height=473")
+            .setColor(new Color(127, 0 ,255))
+            .setDescription("""
+                    `시간의 문장` - **쿨타임 감소 15초, HP/MP 100% 회복, 26초 내 사망 시 부활**
+                    `[체인지] 정신붕괴` - **5초간 마법 방어력 감소 56%**
+                    """);
+    EmbedBuilder add_4line = new EmbedBuilder().setTitle("오버마인드 (오마)")
+            .setAuthor("애드 4라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069465565112053830/sunny.png?width=544&height=473")
+            .setColor(new Color(127, 0 ,255))
+            .setDescription("""
+                    `이그제미네이션` - **5초간 모든 속성 저항 감소 150**
+                    `스팀팩` - **(아군에게)10초간 공격력 증가 10% 및 방어력 감소 20%, (적군에게)10초간 공격력 증가 10% 및 방어력 감소 20%**
+                    `큐어` - **즉시 HP/MP 40~55%와 특수 자원, 이후 7초간 아군 HP/MP를 초당 0.8~12%씩 회복**
+                    `PCA` - **10초간 받는 피해 감소 14~20%**
+                    `디톡시케이션, [체인지] 디톡시케이션` - **12초간 액티브, 스페셜 액티브 스킬 데미지 증가 18%**
+                    `이뮤니티` - **디버프 해제 이후 3~6초간 디버프 면역 상태**
+                    `펄스 다이그노시스` - **10초간 공격력 감소 20%**
+                    `에네스티시아` - **빙결 3~5초**
+                    `매스 이그제미네이션` - **아군의 조건에 따라 단계에 맞는 효과를 50초간 부여**
+                    ```1단계 - 크리티컬 50% 이하 : 크리티컬 20% 증가
+                    2단계 - 극대화 50% 이하 : 극대화 20% 증가
+                    3단계 - 물리/마법 방어 무시 5% 이하 : 물리/마법 방어 무시 10% 증가
+                    4단계 - 1~3단계에 해당되지 않을 경우 : 물리/마법 공격력 10% 증가```
+                    `트롤리 딜레마` - **아군 1명에게 50초간 스페셜 액티브 스킬 쿨타임 감소 1.5배, 스페셜 액티브 스킬 MP 소모량 감소 20% 효과 부여**
+                    `오버트리트먼트(스팀팩, 큐어, PCA, 디톡시케이션, 매스 이그제미네이션, 트롤리 딜레마)` - **아군에게 10초간 지속되는 디버프 부여 (1중첩씩 감소, 이뮤니티 스킬로만 해제 가능)**
+                    ```1단계 - 1~20 중첩 : 중첩당 타격시 MP 회복량 0.25% 감소 (최대 5%)
+                    2단계 - 21~40 중첩: 타격시 MP 회복량 5% 감소, 중첩당 각성 충전 속도(DP 회복량) 0.25% 감소 (최대 5%)
+                    3단계 - 41~60 중첩: 타격시 MP 회복량 5% 감소, 중첩당 각성 충전 속도(DP 회복량) 5% 감소, 중첩당 크리티컬 확률 0.25% 감소 (최대 5%)
+                    4단계 - 61~80 중첩: 타격시 MP 회복량 5% 감소, 중첩당 각성 충전 속도(DP 회복량) 5% 감소, 중첩당 크리티컬 확률 5% 감소, 중첩당 극대화 확률 0.25% 감소 (최대 5%)
+                    5단계 - 81~100 중첩: 타격시 MP 회복량 5% 감소, 중첩당 각성 충전 속도(DP 회복량) 5% 감소, 중첩당 크리티컬 확률 5% 감소, 중첩당 극대화 확률 5% 감소, 중첩당 물리/마법 공격력 2.5% 감소 (최대 50%)```
+                    """);
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
@@ -506,6 +557,9 @@ public class ElswordPartySynergy extends ListenerAdapter{
             if(get_value.equals("Elesis")) {
                 setEphemeral_true.addActionRow(elesis_line).queue();
             }
+            if(get_value.equals("Add")) {
+                setEphemeral_true.addActionRow(add_line).queue();
+            }
         }
         if(event.getComponentId().equals("menu:elsword")) { //엘소드 시너지
             setEphemeral_true.queue();
@@ -624,6 +678,20 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("elesis_4line")) {
                 get_hook.sendMessageEmbeds(elesis_4line.build()).queue();
+            }
+        }
+        if(event.getComponentId().equals("menu:add")) {
+            if(get_value.equals("add_1line")) {
+                get_hook.sendMessageEmbeds(add_1line.build()).queue();
+            }
+            if(get_value.equals("add_2line")) {
+                get_hook.sendMessageEmbeds(add_2line.build()).queue();
+            }
+            if(get_value.equals("add_3line")) {
+                get_hook.sendMessageEmbeds(add_3line.build()).queue();
+            }
+            if(get_value.equals("add_4line")) {
+                get_hook.sendMessageEmbeds(add_4line.build()).queue();
             }
         }
     }

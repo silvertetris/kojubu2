@@ -584,6 +584,52 @@ public class ElswordPartySynergy extends ListenerAdapter{
             .setDescription("""
                     `으르렁` - **아군에게 2초간 효과 없는 디버프 1종 부여**
                     """);
+    EmbedBuilder noah_1line = new EmbedBuilder().setTitle("리버레이터 (리버)")
+            .setAuthor("노아 1라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069496565691056178/c190_m.png?width=361&height=473")
+            .setColor(new Color(51, 51, 255))
+            .setDescription("""
+                    `신기루` - **10초간 물리 방어력 감소 15%**
+                    `백야` - **발동 시 30초간 중간보스/보스에게 주는 피해 증가 10%**
+                    `각성 중 커맨드 공격 (낯선 새벽)` - **5초간 받는 피해 증가 : 20%**
+                    """);
+    EmbedBuilder noah_2line = new EmbedBuilder().setTitle("셀레스티아 (셀레)")
+            .setAuthor("노아 2라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069496586301866014/c191_m.png?width=361&height=473")
+            .setColor(new Color(51, 51, 255))
+            .setDescription("""
+                    ``비욘드`` - **5초간 마법 방어력 감소 10%
+                    `네뷸라, [체인지] 네뷸라` - **3초간 마법 방어력 감소 24% (자색 성운), 3초간 영역 내 아군의 HP 초당 9.6% 회복 (황색 성운), 3초간 크리티컬로 받는 피해 12% 증가 (청색 성운)**
+                    `조디악` - **영역 내 아군의 디버프 제거**
+                    `서큘레이션 - 물병자리 (천궁도, 코스모스)` - **물병자리 심볼 획득 시 갯수 당 15초간 마법 공격력 1% 증가 (최대 20%)**
+                    `서큘레이션 - 사자자리 (무한궤도)` - **사자자리 심볼 획득 시 갯수 당 15초간 물리/마법 방어력 및 최대 HP 1% 증가 (최대 40%)**
+                    `서큘레이션 - 쌍둥이자리 (천체의 항해자)` - **약 0.5초간 스페셜 액티브 스킬 재사용 시간 감소 1초, 받는 피해 감소 80%**
+                    `네이탈 차트 - [인포츈]` - **40초간 스페셜 액티브 재사용 시간 1.2배 가속화**
+                    `네이탈 차트 - [언포츈]` - **40초간 초당 MP 5% 회복**
+                    `네이탈 차트 - [포츈 오브 언노운]` - **40초간 거대화, 스킬 재사용 시간 가속화 1.3배, 초당 MP 7% 회복, 강제 각성 20초**
+                    `호라리 - [컬렉션 오브 라이트]` - **10초간 영역 내 아군이 주는 피해량 증가 12%**
+                    `호라리 - [저지먼트]` - **8초간 영역 내 아군의 특수 자원 소모량 제거**
+                    `호라리 - [컬미네이션]` - **15초간 아군이 주는 피해량 증가 18%, 특수 자원 소모량 제거**
+                    `천체의 항해자` - **쌍둥이심볼 영역이 생성될 때, 매우 짧은 순간 영역 내 아군이 받는 피해 80% 방지, 영역 내 아군의 스페셜 액티브 재사용 시간 0.5초 감소**
+                    """);
+    EmbedBuilder noah_3line = new EmbedBuilder().setTitle("닉스 피에타 (닉스)")
+            .setAuthor("노아 3라인")
+            .setThumbnail("https://media.discordapp.net/attachments/1010960966260891658/1069496620749693030/c192_m.png?width=361&height=473")
+            .setColor(new Color(51, 51, 255))
+            .setDescription("""
+                    `달의 조각` - **20초간 물리, 마법 방어력 감소 20%**
+                    `만조` - **14.4초간 모든 속성 저항 감소 150**
+                    `빙하` - **빙결 5초**
+                    `소멸, [체인지] 소멸` - **20초간 받는 피해 증가 10%**
+                    `백색왜성, [체인지] 백색왜성` - **20초간 크리티컬 받는 피해 증가 12%**
+                    `달의 기원` - **HP/MP 즉시 회복 30%, 6초간 초당 HP/MP HP, MP 0.4% 회복 (40만 전투력 당 +0.4% (최대 6%))**
+                    `선고` - **20초간 강렬한, 초월한 스킬 데미지 10% 증가**
+                    `은월의 부름` - **10초간 받는 피해량 감소 20%**
+                    `냉정한 분노, **[체인지] 냉정한 분노` - 20초간 각성 충전 속도 증가 2배**
+                    `구원` - **아군의 각성 구슬 3개 회복 및 특정 특수 자원 100% 회복**
+                    `고해 스킬, 안식 스킬 (폭풍의 대양)` - **고해 스킬 3회 사용 시 8초간 물리 공격력 증가 8%, 안식 스킬 3회 15초간 사용 시 물리, 마법 방어력 증가 20%**
+                    `염원` - **하이퍼 액티브, 마스터 스킬 재사용 시간 재사용 시간 가속화 2배, 30초 내 사망 시 부활**
+                    """);
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
@@ -722,6 +768,13 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("니샤 라비린스", "laby_3line")
                 .addOption("트윈즈 피카로", "laby_4line")
                 .build();
+        StringSelectMenu noah_line=StringSelectMenu.create("menu:noah")
+                .setPlaceholder("노아 전직 선택")
+                .setRequiredRange(1,1)
+                .addOption("리버레이터", "noah_1line")
+                .addOption("셀레스티아", "noah_2line")
+                .addOption("닉스 피에타", "noah_3line")
+                .build();
 
         if(event.getComponentId().equals("menu:character")) {
             if(get_value.equals("Elsword")){
@@ -762,6 +815,9 @@ public class ElswordPartySynergy extends ListenerAdapter{
             }
             if(get_value.equals("Laby")) {
                 setEphemeral_true.addActionRow(laby_line).queue();
+            }
+            if(get_value.equals("Noah")) {
+                setEphemeral_true.addActionRow(noah_line).queue();
             }
         }
         if(event.getComponentId().equals("menu:elsword")) { //엘소드 시너지
@@ -952,8 +1008,20 @@ public class ElswordPartySynergy extends ListenerAdapter{
             if(get_value.equals("laby_3line")) {
                 get_hook.sendMessageEmbeds(laby_3line.build()).queue();
             }
-            if(get_value.equals("laby_4lineL")) {
+            if(get_value.equals("laby_4line")) {
                 get_hook.sendMessageEmbeds(laby_4line.build()).queue();
+            }
+        }
+        if(event.getComponentId().equals("menu:noah")) {
+            setEphemeral_true.queue();
+            if(get_value.equals("noah_1line")){
+                get_hook.sendMessageEmbeds(noah_1line.build()).queue();
+            }
+            if(get_value.equals("noah_2line")) {
+                get_hook.sendMessageEmbeds(noah_2line.build()).queue();
+            }
+            if(get_value.equals("noah_3line")) {
+                get_hook.sendMessageEmbeds(noah_3line.build()).queue();
             }
         }
     }

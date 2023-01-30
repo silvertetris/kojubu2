@@ -524,7 +524,7 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 .addOption("블러디 퀸", "elesis_3line")
                 .addOption("아드레스티아", "elesis_4line")
                 .build();
-        StringSelectMenu add_line=StringSelectMenu.create("menu:Add")
+        StringSelectMenu add_line=StringSelectMenu.create("menu:add")
                 .setPlaceholder("애드 전직 선택")
                 .setRequiredRange(1,1)
                 .addOption("둠 브링어", "add_1line")
@@ -666,7 +666,8 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 get_hook.sendMessageEmbeds(Ara_4line.build()).queue();
             }
         }
-        if(event.getComponentId().equals("menu:elesis")) {
+        if(event.getComponentId().equals("menu:elesis")) {//엘리시스 시너지
+            setEphemeral_true.queue();
             if(get_value.equals("elesis_1line")){
                 get_hook.sendMessageEmbeds(elesis_1line.build()).queue();
             }
@@ -680,7 +681,8 @@ public class ElswordPartySynergy extends ListenerAdapter{
                 get_hook.sendMessageEmbeds(elesis_4line.build()).queue();
             }
         }
-        if(event.getComponentId().equals("menu:add")) {
+        if(event.getComponentId().equals("menu:add")) {//애드 시너지
+            setEphemeral_true.queue();
             if(get_value.equals("add_1line")) {
                 get_hook.sendMessageEmbeds(add_1line.build()).queue();
             }

@@ -33,7 +33,7 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
             {
                 privateChannel.sendMessage("``" + guildName + "`` 서버에 환영 채널을 생성했어요!").queue();
             });
-        }
+    }
         if (command.equals("set_leave")) {
             event.deferReply().setEphemeral(true).queue();
             if (!findLeaveChannel.isEmpty()) {

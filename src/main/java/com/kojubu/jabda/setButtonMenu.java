@@ -27,7 +27,7 @@ public class setButtonMenu extends ListenerAdapter {
         Button stopbutton = Button.danger("stop_button", Emoji.fromUnicode("U+23F9"));
         Button skipbutton = Button.primary("skip_button", Emoji.fromUnicode("U+23ED"));
         ActionRow row = ActionRow.of(playbutton, skipbutton, stopbutton);
-        EmbedBuilder settingEmbed = new EmbedBuilder().setTitle("코주부 뮤직")
+        EmbedBuilder musicEmbedInit = new EmbedBuilder().setTitle("코주부 뮤직")
                 .setDescription("버튼을 누르세요!")
                 .setColor(Color.green);
         /*for (Role role : userRoles) {
@@ -50,7 +50,7 @@ public class setButtonMenu extends ListenerAdapter {
                         return;
                     }
                     event.deferReply().setEphemeral(false).queue();
-                    event.getGuild().createTextChannel("kojubu2").complete().sendMessageEmbeds(settingEmbed.build()).setComponents(row)
+                    event.getGuild().createTextChannel("kojubu2").complete().sendMessageEmbeds(musicEmbedInit.build()).setComponents(row)
                             .queue();
                     event.getHook().sendMessage("설정 완료!").queue();
                 } catch (NullPointerException e1) {
@@ -65,7 +65,8 @@ public class setButtonMenu extends ListenerAdapter {
 
     @Override
     public void onButtonInteraction(ButtonInteractionEvent event) {
-        if (event.getComponentId().equals("hello-button")) {
+        if (event.getComponentId().equals("play_pause")) {
+
             event.reply("Hello, " + event.getUser().getAsMention()).queue();
         }
     }

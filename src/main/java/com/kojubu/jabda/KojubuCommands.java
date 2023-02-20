@@ -38,6 +38,7 @@ public class KojubuCommands extends ListenerAdapter {
         ReplyCallbackAction ephemeral_true = event.deferReply().setEphemeral(true);
         ReplyCallbackAction ephemeral_false = event.deferReply().setEphemeral(false);
         InteractionHook get_Hook = event.getHook();
+        GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
 
         if (command.equals("환영")) {
             event.reply("Welcome! " + userTag).queue();
@@ -95,7 +96,6 @@ public class KojubuCommands extends ListenerAdapter {
         }
 
         if (command.equals("stop") && event.getMember().getVoiceState().inAudioChannel()) {
-            GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
             musicManager.scheduler.audioPlayer.stopTrack();
             musicManager.scheduler.queue.clear();
             ephemeral_true.queue();
@@ -104,7 +104,6 @@ public class KojubuCommands extends ListenerAdapter {
         }
 
         if (command.equals("skip") && event.getMember().getVoiceState().inAudioChannel()) {
-            GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
             AudioPlayer audioPlayer = musicManager.audioPlayer;
             AudioTrack track = audioPlayer.getPlayingTrack();
             ephemeral_true.queue();
@@ -120,7 +119,6 @@ public class KojubuCommands extends ListenerAdapter {
         }
 
         if (command.equals("np")) {
-            GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
             AudioPlayer audioPlayer = musicManager.audioPlayer;
             AudioTrack track = audioPlayer.getPlayingTrack();
             ephemeral_false.queue();
@@ -134,7 +132,6 @@ public class KojubuCommands extends ListenerAdapter {
         }
 
         if (command.equals("queue")) {
-            GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
             BlockingQueue<AudioTrack> queue = musicManager.scheduler.queue;
             WebhookMessageCreateAction messageAction = get_Hook.sendMessage("**현재 목록:**\n");
             ephemeral_false.queue();
@@ -166,28 +163,24 @@ public class KojubuCommands extends ListenerAdapter {
         }
 
         if(command.equals("pause")) {
-            GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
             ephemeral_true.queue();
             musicManager.scheduler.audioPlayer.setPaused(true);
             get_Hook.sendMessage("일시정지!").queue();
         }
 
         if(command.equals("resume"))  {
-            GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
             ephemeral_true.queue();
             musicManager.scheduler.audioPlayer.setPaused(false);
             get_Hook.sendMessage("음악 재개!").queue();
         }
 
         if(command.equals("volume_status")) {
-            GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
             ephemeral_true.queue();
             int volume = musicManager.scheduler.audioPlayer.getVolume();
             get_Hook.sendMessageFormat("현재 볼륨 크기: %d", volume).queue();
         }
 
         if(command.equals("volume")) {
-            GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
             ephemeral_false.queue();
             OptionMapping option=event.getOption("set_volume");
             long setvolume= Objects.requireNonNull(option).getAsLong();
@@ -196,7 +189,6 @@ public class KojubuCommands extends ListenerAdapter {
         }
 
         if(command.equals("repeat")) {
-            GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
             boolean new_repeating= !musicManager.scheduler.repeating;
             musicManager.scheduler.repeating=new_repeating;
             ephemeral_false.queue();

@@ -9,8 +9,8 @@
         <module name="KojubuV2" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="kojubu123" target="18" />
+    <bytecodeTargetLevel target="19">
+      <module name="kojubu123" target="19" />
       <module name="KojubuV2" target="19" />
     </bytecodeTargetLevel>
   </component>

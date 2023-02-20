@@ -11,9 +11,9 @@ import java.util.Objects;
 public class commandUtils extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
-        int messageIndex = Objects.requireNonNull(event.getOption("purge_amount")).getAsInt();
         String command = event.getName();
         if (command.equals("삭제") && event.getMember().hasPermission(Permission.MESSAGE_MANAGE)) {
+            int messageIndex = event.getOption("purge_amount").getAsInt();
             List<Message> messages = event.getChannel().getHistory().retrievePast(messageIndex).complete();
             event.deferReply().setEphemeral(false).queue();
             event.getChannel().purgeMessages(messages);

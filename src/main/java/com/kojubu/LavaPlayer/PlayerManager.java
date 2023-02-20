@@ -61,6 +61,10 @@ public class PlayerManager {
             public void playlistLoaded(AudioPlaylist audioPlaylist) {
                 final List<AudioTrack> tracks = audioPlaylist.getTracks();
                 if (!tracks.isEmpty()) {
+                    if(textChannel.getName().equals("kojubu2")){
+                        musicManager.scheduler.queue(tracks.get(0));
+                        return;
+                    }
                     musicManager.scheduler.queue(tracks.get(0));
                     textChannel
                             .sendMessage("목록에 추가함 **`" + tracks.get(0).getInfo().title + "`** by **`"
@@ -72,6 +76,9 @@ public class PlayerManager {
 
             @Override
             public void trackLoaded(AudioTrack audioTrack) {
+                if(textChannel.getName().equals("kojubu2")) {
+                    musicManager.scheduler.queue(audioTrack);
+                }
                 musicManager.scheduler.queue(audioTrack);
                 textChannel.sendMessage(
                                 "목록에 추가함 **`" + audioTrack.getInfo().title + "`** by **`" + audioTrack.getInfo().author + "`**")

@@ -87,7 +87,6 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
             }
 
             if (!event.getMessage().isFromGuild()) {
-                return;
             }
             //System.out.println(GuildName + ":" + ChannelName + "\n" + MemberTag + ":" + event.getMessage().getContentDisplay());
         } catch (NullPointerException e) {

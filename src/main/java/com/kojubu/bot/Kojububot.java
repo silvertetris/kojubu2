@@ -29,7 +29,8 @@ public class Kojububot {
         builder.setActivity(Activity.listening("안뇽~"));
         builder.setStatus(OnlineStatus.ONLINE);
         builder.addEventListeners(new GenericListenerAdapterEvents(),
-                new KojubuCommands(), new slashcommandinfo(), new helpInfo(), new GuildChannelLogs(), new ElswordPartySynergy());
+                new KojubuCommands(), new slashcommandinfo(), new helpInfo(), new GuildChannelLogs(), new ElswordPartySynergy(),
+                new setButtonMenu());
         builder.enableIntents(Arrays.asList(INTENTS));
         builder.enableCache(CacheFlag.VOICE_STATE, CacheFlag.EMOJI, CacheFlag.ROLE_TAGS, CacheFlag.STICKER, CacheFlag.ACTIVITY);
         shardManager = builder.build();

@@ -1,5 +1,7 @@
 package com.kojubu.jabda;
 
+import com.kojubu.LavaPlayer.GuildMusicManager;
+import com.kojubu.LavaPlayer.PlayerManager;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Role;
@@ -14,7 +16,7 @@ import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import java.awt.*;
 import java.util.List;
 
-public class setButtonMenu extends ListenerAdapter {
+public class ButtonMenu extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         //String allowedRoleName = "Admin";
@@ -59,15 +61,27 @@ public class setButtonMenu extends ListenerAdapter {
 
             }
         } else {
-            event.reply("이 명령어를 실행할 권한이 없습니다.");
+            event.deferReply().setEphemeral(true).queue();
+            event.getHook().sendMessage("이 명령어를 실행할 권한이 없습니다!").queue();
         }
     }
 
     @Override
     public void onButtonInteraction(ButtonInteractionEvent event) {
+        GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
         if (event.getComponentId().equals("play_pause")) {
-
-            event.reply("Hello, " + event.getUser().getAsMention()).queue();
+            if (!musicManager.scheduler.audioPlayer.isPaused()) {
+                musicManager.scheduler.audioPlayer.setPaused(true);
+            } else {
+                musicManager.scheduler.audioPlayer.setPaused(false);
+            }
+        } else if (event.getComponentId().equals("stop_button")) {
+            musicManager.scheduler.queue.clear();
+            musicManager.scheduler.audioPlayer.stopTrack();
+            musicManager.scheduler.audioPlayer.setPaused(false);
+        } else if (event.getComponentId().equals("skip_button")) {
+            musicManager.scheduler.nextTrack();
         }
+        event.deferEdit().queue();
     }
 }

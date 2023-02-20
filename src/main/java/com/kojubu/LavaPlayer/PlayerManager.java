@@ -1,9 +1,5 @@
 package com.kojubu.LavaPlayer;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
@@ -11,10 +7,12 @@ import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
-
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class PlayerManager {
     private static PlayerManager INSTANCE;
@@ -27,6 +25,13 @@ public class PlayerManager {
 
         AudioSourceManagers.registerRemoteSources(this.audioPlayerManager);
         AudioSourceManagers.registerLocalSource(this.audioPlayerManager);
+    }
+
+    public static PlayerManager getINSTANCE() {
+        if (INSTANCE == null) {
+            INSTANCE = new PlayerManager();
+        }
+        return INSTANCE;
     }
 
     public GuildMusicManager getMusicManager(Guild guild) {
@@ -69,17 +74,10 @@ public class PlayerManager {
             public void trackLoaded(AudioTrack audioTrack) {
                 musicManager.scheduler.queue(audioTrack);
                 textChannel.sendMessage(
-                        "목록에 추가함 **`" + audioTrack.getInfo().title + "`** by **`" + audioTrack.getInfo().author + "`**")
+                                "목록에 추가함 **`" + audioTrack.getInfo().title + "`** by **`" + audioTrack.getInfo().author + "`**")
                         .queue();
             }
 
         });
-    }
-
-    public static PlayerManager getINSTANCE() {
-        if (INSTANCE == null) {
-            INSTANCE = new PlayerManager();
-        }
-        return INSTANCE;
     }
 }

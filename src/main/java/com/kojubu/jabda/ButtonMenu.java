@@ -19,9 +19,7 @@ import java.util.List;
 public class ButtonMenu extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
-        //String allowedRoleName = "Admin";
         boolean checkAdmin = event.getMember().hasPermission(Permission.ADMINISTRATOR);
-        //long allowedRoleId = 1077122628965367829L;
         List<Role> userRoles = event.getMember().getRoles();
         boolean allowed = false;
         String command = event.getName();
@@ -32,16 +30,6 @@ public class ButtonMenu extends ListenerAdapter {
         EmbedBuilder musicEmbedInit = new EmbedBuilder().setTitle("코주부 뮤직")
                 .setDescription("버튼을 누르세요!")
                 .setColor(Color.green);
-        /*for (Role role : userRoles) {
-            if (role.getName().equals(allowedRoleName) || role.getIdLong() == allowedRoleId) {
-                allowed = true;
-                break;
-            }
-        }
-        if (!allowed) {
-            event.reply("이 명령어를 실행할 권한이 없습니다.");
-            return;
-        }*/
         if (checkAdmin) {
             if (command.equals("set_music_button") && checkAdmin) {
                 try {

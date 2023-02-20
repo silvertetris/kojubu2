@@ -37,6 +37,8 @@ public class slashcommandinfo extends ListenerAdapter {
         GuildCommandData.add(Commands.slash("set_welcome", "환영 채널 생성"));
         GuildCommandData.add(Commands.slash("set_leave", "퇴장 채널 생성"));
         GuildCommandData.add(Commands.slash("set_music_button", "버튼메세지 생성"));
+        OptionData purgeAmountData=new OptionData(OptionType.INTEGER, "purge_amount", "삭제할 메세지 수", true).setRequiredRange(1,20);
+        GuildCommandData.add(Commands.slash("삭제", "메세지 삭제").addOptions(purgeAmountData));
         JDACommandData.add(Commands.slash("엘소드_시너지", "엘소드 캐릭터 시너지 정보"));
         JDACommandData.add(Commands.slash("help", "도움, 설명"));
         event.getGuild().updateCommands().addCommands(GuildCommandData).queue();

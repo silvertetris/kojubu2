@@ -70,14 +70,13 @@ public class PlayerManager {
                         List<Message> messages = textChannel.getManager().getChannel().getHistory().retrievePast(100).complete();
                         String id = messages.get(messages.size() - 1).getId();
                         EmbedBuilder musicEmbedUpdate = new EmbedBuilder().setTitle("코주부 뮤직").setColor(Color.BLUE)
-                                .addField("현재 곡", audioPlaylist.getTracks().get(0).getInfo().title, false)
+                                .addField("추가한 노래", audioPlaylist.getTracks().get(0).getInfo().title, false)
                                 .addField("아티스트", audioPlaylist.getTracks().get(0).getInfo().author, false)
                                 .addField("URL", audioPlaylist.getTracks().get(0).getInfo().uri, false);
                         textChannel.editMessageEmbedsById(id, musicEmbedUpdate.build()).queue();
                         if (textChannel.getManager().getChannel().getHistory().retrievePast(100).complete().get(0) == null) {
                             System.out.println("헹");
                         }
-                        System.out.println("후잉");
                         return;
                     }
                     musicManager.scheduler.queue(tracks.get(0));

@@ -3,6 +3,7 @@ package com.kojubu.jabda;
 import com.kojubu.LavaPlayer.GuildMusicManager;
 import com.kojubu.LavaPlayer.PlayerManager;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Message;
@@ -17,8 +18,8 @@ import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
 public class ButtonMenu extends ListenerAdapter {
 
@@ -30,7 +31,9 @@ public class ButtonMenu extends ListenerAdapter {
         Button playbutton = Button.primary("play_pause", Emoji.fromUnicode("U+23EF"));
         Button stopbutton = Button.danger("stop_button", Emoji.fromUnicode("U+23F9"));
         Button skipbutton = Button.primary("skip_button", Emoji.fromUnicode("U+23ED"));
-        ActionRow row = ActionRow.of(playbutton, skipbutton, stopbutton);
+        Button npbutton = Button.secondary("np_button", Emoji.fromUnicode("U+1F3B5"));
+        Button queuebutton = Button.secondary("queue_button", Emoji.fromUnicode("U+1F4C4"));
+        ActionRow row = ActionRow.of(playbutton, skipbutton, stopbutton, npbutton, queuebutton);
         EmbedBuilder musicEmbedInit = new EmbedBuilder().setTitle("코주부 뮤직")
                 .setDescription("버튼을 누르세요!")
                 .setColor(Color.green);
@@ -58,14 +61,6 @@ public class ButtonMenu extends ListenerAdapter {
             event.getHook().sendMessage("이 명령어를 실행할 권한이 없습니다!").queue();
         }
     }
-    public void updateMusicEmbed(MessageChannel channel, AudioTrack currentTrack) {
-        EmbedBuilder musicEmbedUpdate = new EmbedBuilder().setTitle("코주부 뮤직").setColor(Color.BLUE).addField("현재 곡", currentTrack.getInfo().title, false)
-                .addField("아티스트", currentTrack.getInfo().author, false)
-                .addField("URL", currentTrack.getInfo().uri, false);
-        List<Message> messages = channel.getHistory().retrievePast(100).complete();
-        String id = messages.get(messages.size() - 1).getId();
-        channel.editMessageEmbedsById(id, musicEmbedUpdate.build()).queue();
-    }
 
     @Override
     public void onButtonInteraction(ButtonInteractionEvent event) {
@@ -82,6 +77,46 @@ public class ButtonMenu extends ListenerAdapter {
             musicManager.scheduler.audioPlayer.setPaused(false);
         } else if (event.getComponentId().equals("skip_button")) {
             musicManager.scheduler.nextTrack();
+        } else if (event.getComponentId().equals("np_button")) {
+            List<Message> messages = event.getChannel().getHistory().retrievePast(100).complete();
+            String id = messages.get(messages.size() - 1).getId();
+            EmbedBuilder musicEmbedUpdate = new EmbedBuilder().setTitle("코주부 뮤직").setColor(Color.BLUE)
+                    .addField("현재 노래", musicManager.audioPlayer.getPlayingTrack().getInfo().title, false)
+                    .addField("아티스트", musicManager.audioPlayer.getPlayingTrack().getInfo().author, false)
+                    .addField("URL", musicManager.audioPlayer.getPlayingTrack().getInfo().uri, false);
+            event.getChannel().editMessageEmbedsById(id, musicEmbedUpdate.build()).queue();
+            if (event.getChannel().getHistory().retrievePast(100).complete().get(0) == null) {
+                System.out.println("헹");
+            }
+            if(musicManager.audioPlayer.getPlayingTrack()==null) {
+                EmbedBuilder ifnullmessage = new EmbedBuilder().setTitle("코주부 뮤직").setColor(Color.red)
+                        .addField("현재 노래", "현재 재생 되고 있는 노래가 없거나 잠시 후에 다시 시도해 주세요!" , false);
+                event.getChannel().editMessageEmbedsById(id, ifnullmessage.build()).queue();
+            }
+        } else if (event.getComponentId().equals("queue_button")) {
+            List<Message> messages = event.getChannel().getHistory().retrievePast(100).complete();
+            String id = messages.get(messages.size() - 1).getId();
+            if (musicManager.scheduler.queue.isEmpty()) {
+                EmbedBuilder emptyqueue_message = new EmbedBuilder().setTitle("코주부 뮤직").setColor(Color.red)
+                        .addField("목록", "**목록이 비어있어요!**", false);
+                event.getChannel().editMessageEmbedsById(id, emptyqueue_message.build()).queue();
+            } else {
+                int i = 0;
+                List<AudioTrack> trackList = new ArrayList<>(musicManager.scheduler.queue);
+                int trackCount = Math.min(musicManager.scheduler.queue.size(), 20);
+                StringBuilder list = new StringBuilder();
+                for (i = 0; i < trackCount; i++) {
+                    AudioTrack track = trackList.get(i);
+                    AudioTrackInfo info = track.getInfo();
+                    list.append("#").append(i + 1)
+                            .append(". ").append(info.title)
+                            .append(" - ").append(info.author).append("\n");
+                }
+                String queueList=list.toString();
+                EmbedBuilder queueUpdate = new EmbedBuilder().setTitle("코주부 뮤직").setColor(Color.BLACK)
+                        .addField("목록", queueList, false);
+                event.getChannel().editMessageEmbedsById(id, queueUpdate.build()).queue();
+            }
         }
         event.deferEdit().queue();
     }

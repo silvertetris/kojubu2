@@ -22,7 +22,7 @@ public class musicChannelFunction extends ListenerAdapter {
             return;
         }
 
-
+        
         super.onMessageReceived(event);
         if (!event.getMember().getVoiceState().inAudioChannel()) {
             event.getMessage().getMember().getUser().openPrivateChannel().queue(privateChannel -> {

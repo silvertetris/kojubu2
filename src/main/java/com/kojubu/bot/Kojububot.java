@@ -29,7 +29,7 @@ public class Kojububot {
         builder.setActivity(Activity.listening("안뇽~"));
         builder.setStatus(OnlineStatus.ONLINE);
         builder.addEventListeners(new GenericListenerAdapterEvents(),
-                new KojubuMusicCommands(), new slashcommandinfo(), new helpInfo(), new GuildChannelLogs(), new ElswordPartySynergy(),
+                  new KojubuMusicCommands(), new slashcommandinfo(), new helpInfo(), new GuildChannelLogs(), new ElswordPartySynergy(),
                 new ButtonMenu(), new musicChannelFunction(), new commandUtils());
         builder.enableIntents(Arrays.asList(INTENTS));
         builder.enableCache(CacheFlag.VOICE_STATE, CacheFlag.EMOJI, CacheFlag.ROLE_TAGS, CacheFlag.STICKER, CacheFlag.ACTIVITY);

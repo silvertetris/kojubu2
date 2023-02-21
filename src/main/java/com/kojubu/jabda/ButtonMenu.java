@@ -40,17 +40,17 @@ public class ButtonMenu extends ListenerAdapter {
         if (command.equals("set_music_button") && checkAdmin) {
             try {
                 List<TextChannel> findMusicChannel = event.getGuild().getTextChannelsByName("kojubu2", true);
-                if (!findMusicChannel.isEmpty()) {
+                if (!findMusicChannel.isEmpty() && !findMusicChannel.get(0).getHistory().retrievePast(1).complete().isEmpty()) {
                     event.deferReply().setEphemeral(true).queue();
                     event.getHook().sendMessage("이미 있음!" + findMusicChannel.get(0)).queue();
                     return;
                 }
-                /*if (findMusicChannel.get(0).getHistory().retrievePast(1).complete().isEmpty()) {
+                if (!findMusicChannel.isEmpty() && findMusicChannel.get(0).getHistory().retrievePast(1).complete().isEmpty()) {
                     event.getChannel().sendMessageEmbeds(musicEmbedInit.build()).setComponents(row).queue();
                     event.deferReply().setEphemeral(true).queue();
                     event.getHook().sendMessage("설정 완료!").queue();
                     return;
-                }*/
+                }
                 event.deferReply().setEphemeral(false).queue();
                 event.getGuild().createTextChannel("kojubu2").complete().sendMessageEmbeds(musicEmbedInit.build()).setComponents(row)
                         .queue();
@@ -64,7 +64,7 @@ public class ButtonMenu extends ListenerAdapter {
                 System.out.println("힝...");
             }
         }
-        if(command.equals("button_init")) {
+        if (command.equals("button_init")) {
 
         }
     }
@@ -91,6 +91,7 @@ public class ButtonMenu extends ListenerAdapter {
                 EmbedBuilder ifnullmessage = new EmbedBuilder().setTitle("코주부 뮤직").setColor(Color.red)
                         .addField("현재 노래", "현재 재생 되고 있는 노래가 없거나 잠시 후에 다시 시도해 주세요!", false);
                 event.getChannel().editMessageEmbedsById(id, ifnullmessage.build()).queue();
+                event.deferEdit().queue();
             }
             EmbedBuilder musicEmbedUpdate = new EmbedBuilder().setTitle("코주부 뮤직").setColor(Color.BLUE)
                     .addField("현재 노래", musicManager.audioPlayer.getPlayingTrack().getInfo().title, false)

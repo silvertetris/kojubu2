@@ -181,7 +181,7 @@ public class KojubuMusicCommands extends ListenerAdapter {
         }
 
         if(command.equals("volume")) {
-            ephemeral_false.queue();
+            ephemeral_true.queue();
             OptionMapping option=event.getOption("set_volume");
             long setvolume= Objects.requireNonNull(option).getAsLong();
             musicManager.scheduler.audioPlayer.setVolume((int) setvolume);
@@ -191,7 +191,7 @@ public class KojubuMusicCommands extends ListenerAdapter {
         if(command.equals("repeat")) {
             boolean new_repeating= !musicManager.scheduler.repeating;
             musicManager.scheduler.repeating=new_repeating;
-            ephemeral_false.queue();
+            ephemeral_true.queue();
             get_Hook.sendMessageFormat("반복 **%s**", new_repeating ? "켜짐" : "꺼짐").queue();
         }
     }

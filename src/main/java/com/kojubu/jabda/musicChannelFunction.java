@@ -1,15 +1,12 @@
 package com.kojubu.jabda;
 
-import com.kojubu.LavaPlayer.GuildMusicManager;
 import com.kojubu.LavaPlayer.PlayerManager;
-import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 
 public class musicChannelFunction extends ListenerAdapter {
 

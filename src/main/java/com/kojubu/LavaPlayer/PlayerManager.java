@@ -7,9 +7,12 @@ import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,9 +37,10 @@ public class PlayerManager {
         return INSTANCE;
     }
 
+
     public GuildMusicManager getMusicManager(Guild guild) {
         return this.musicManagers.computeIfAbsent(guild.getIdLong(), (guildID) -> {
-            final GuildMusicManager guildMusicManager = new GuildMusicManager(this.audioPlayerManager);
+            final GuildMusicManager guildMusicManager = new GuildMusicManager(this.audioPlayerManager, guild);
             guild.getAudioManager().setSendingHandler(guildMusicManager.getSendHandler());
             return guildMusicManager;
         });
@@ -63,6 +67,17 @@ public class PlayerManager {
                 if (!tracks.isEmpty()) {
                     if(textChannel.getName().equals("kojubu2")){
                         musicManager.scheduler.queue(tracks.get(0));
+                        List<Message> messages = textChannel.getManager().getChannel().getHistory().retrievePast(100).complete();
+                        String id = messages.get(messages.size() - 1).getId();
+                        EmbedBuilder musicEmbedUpdate = new EmbedBuilder().setTitle("코주부 뮤직").setColor(Color.BLUE)
+                                .addField("현재 곡", audioPlaylist.getTracks().get(0).getInfo().title, false)
+                                .addField("아티스트", audioPlaylist.getTracks().get(0).getInfo().author, false)
+                                .addField("URL", audioPlaylist.getTracks().get(0).getInfo().uri, false);
+                        textChannel.editMessageEmbedsById(id, musicEmbedUpdate.build()).queue();
+                        if (textChannel.getManager().getChannel().getHistory().retrievePast(100).complete().get(0) == null) {
+                            System.out.println("헹");
+                        }
+                        System.out.println("후잉");
                         return;
                     }
                     musicManager.scheduler.queue(tracks.get(0));
@@ -78,6 +93,7 @@ public class PlayerManager {
             public void trackLoaded(AudioTrack audioTrack) {
                 if(textChannel.getName().equals("kojubu2")) {
                     musicManager.scheduler.queue(audioTrack);
+
                 }
                 musicManager.scheduler.queue(audioTrack);
                 textChannel.sendMessage(

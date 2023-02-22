@@ -69,8 +69,9 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         try {
-            super.onMessageReceived(event);
+            if(!event.isFromGuild()) return;
             if(event.getGuild().getId().equals("1005135110015832174")) {
+                super.onMessageReceived(event);
                 String beakma=event.getJDA().retrieveUserById("866160354455060492").complete().getAsMention();
                 if (event.getMessage().getContentRaw().equals("백마")) {
                     HwakMa++;
@@ -89,8 +90,10 @@ public class GenericListenerAdapterEvents extends ListenerAdapter {
             if (!event.getMessage().isFromGuild()) {
             }
             //System.out.println(GuildName + ":" + ChannelName + "\n" + MemberTag + ":" + event.getMessage().getContentDisplay());
-        } catch (NullPointerException e) {
+        } catch (NullPointerException e1) {
            //System.out.println("누군가 봇으로 메세지 보냄!");
+        } catch (IllegalStateException e2) {
+            System.out.println("IllegalStateException 발생! (GenericListenerAdapterEvents)");
         }
     }
 }

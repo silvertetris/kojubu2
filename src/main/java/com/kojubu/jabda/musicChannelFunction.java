@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 public class musicChannelFunction extends ListenerAdapter {
 
@@ -22,7 +23,6 @@ public class musicChannelFunction extends ListenerAdapter {
             return;
         }
 
-        
         super.onMessageReceived(event);
         if (!event.getMember().getVoiceState().inAudioChannel()) {
             event.getMessage().getMember().getUser().openPrivateChannel().queue(privateChannel -> {
@@ -43,6 +43,15 @@ public class musicChannelFunction extends ListenerAdapter {
         TextChannel channel = event.getGuild().getTextChannelsByName("kojubu2", true).get(0);
         System.out.println(link);
         event.getMessage().delete().queue();
+        List<TextChannel> findMusicChannel = event.getGuild().getTextChannelsByName("kojubu2", true);
+        if(!findMusicChannel.isEmpty() && findMusicChannel.get(0).getHistory().retrievePast(1).complete().size()<2) {
+            if(findMusicChannel.get(0).getHistory().retrievePast(1).complete().size()<1) {
+                event.getMessage().getMember().getUser().openPrivateChannel().queue(privateChannel -> {
+                    privateChannel.sendMessage("**코주부 뮤직 준비가 안되었습니다! 관리자에게 문의하세요!**").queue();
+                });
+                return;
+            }
+        }
         //List<Message> messages = event.getChannel().getHistory().retrievePast(100).complete();
         //String id = messages.get(messages.size() - 1).getId();
         PlayerManager.getINSTANCE().loadAndPlay(channel, link);

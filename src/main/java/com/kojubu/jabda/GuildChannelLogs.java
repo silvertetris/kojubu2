@@ -40,7 +40,8 @@ public class GuildChannelLogs extends ListenerAdapter {
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
 
         try {
-            if (event.getMessage().getChannel().getName().equals("logs")) return;
+            if(!event.isFromGuild()) return;
+            if (event.isFromGuild() && event.getMessage().getChannel().getName().equals("logs")) return;
 
             String ChannelId = event.getChannel().getId();
             String member = event.getMessage().getAuthor().getAsTag();
@@ -58,8 +59,8 @@ public class GuildChannelLogs extends ListenerAdapter {
                     .addField("URL", jumpurl, false);
             event.getGuild().getTextChannelsByName("logs", true).get(0).sendMessageEmbeds(log.build()).queue();
             log.clear();
-        } catch (NullPointerException | IndexOutOfBoundsException e) {
-
+        } catch (NullPointerException | IndexOutOfBoundsException e1) {
+            System.out.println("guild logs 예외발견");
         }
     }
 }

@@ -71,7 +71,7 @@ public class ButtonMenu extends ListenerAdapter {
 
     @Override
     public void onButtonInteraction(ButtonInteractionEvent event) {
-        try{
+        try {
             GuildMusicManager musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
             if (event.getComponentId().equals("play_pause")) {
                 if (!musicManager.scheduler.audioPlayer.isPaused()) {

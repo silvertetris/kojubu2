@@ -44,8 +44,8 @@ public class musicChannelFunction extends ListenerAdapter {
         System.out.println(link);
         event.getMessage().delete().queue();
         List<TextChannel> findMusicChannel = event.getGuild().getTextChannelsByName("kojubu2", true);
-        if(!findMusicChannel.isEmpty() && findMusicChannel.get(0).getHistory().retrievePast(1).complete().size()<2) {
-            if(findMusicChannel.get(0).getHistory().retrievePast(1).complete().size()<1) {
+        if (!findMusicChannel.isEmpty() && findMusicChannel.get(0).getHistory().retrievePast(1).complete().size() < 2) {
+            if (findMusicChannel.get(0).getHistory().retrievePast(1).complete().size() < 1) {
                 event.getMessage().getMember().getUser().openPrivateChannel().queue(privateChannel -> {
                     privateChannel.sendMessage("**코주부 뮤직 준비가 안되었습니다! 관리자에게 문의하세요!**").queue();
                 });

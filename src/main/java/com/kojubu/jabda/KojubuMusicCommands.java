@@ -86,7 +86,7 @@ public class KojubuMusicCommands extends ListenerAdapter {
         if (command.equals("leave")) {
             if (event.getGuild().getSelfMember().getVoiceState().inAudioChannel()) {
                 audioManager.closeAudioConnection();
-                ephemeral_false.queue();
+                ephemeral_true.queue();
                 get_Hook.sendMessage("봇 나감!").queue();
                 return;
             } else {

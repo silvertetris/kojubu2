@@ -14,7 +14,7 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 public class AppTest {
     private final ShardManager shardManager;
     public AppTest() throws LoginException {
-        String token = "OTczOTMwOTA5OTY1MzczNDQy.GXpDvc.FQhP0pJiNwFmj4sMoRS3plXMk9yp6pmCpckEDw";
+        String token = "token";
         DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(token);
         builder.setActivity(Activity.listening("Kendrick"));
         builder.setStatus(OnlineStatus.IDLE);
